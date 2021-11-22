@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class playerManager : MonoBehaviour
 {
+    // Various canvas's that need to be hidden at first.
+    public GameObject pauseMenuCanvas;
 
+    // Various public variables.
     public int baseHealth = 100;
     public int playerCurrency = 10;
 
@@ -14,7 +17,8 @@ public class playerManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Settings Menu Scene");
+            Time.timeScale = 1;
+            pauseMenuCanvas.SetActive(true);
         }
     
     }
