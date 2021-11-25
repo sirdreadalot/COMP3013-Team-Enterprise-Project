@@ -2,24 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class archerbehaviour : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> targetlist = new List<GameObject>(); //will store all enemies in give collision radius
-    
-   [SerializeField]  GameObject Target;  //store gameobject for current target
 
+
+
+   
+    [Header("targeting behaviour")]
+   
+    [SerializeField] private List<GameObject> targetlist = new List<GameObject>(); //will store all enemies in give collision radius   
+    [SerializeField]  GameObject Target;  //store gameobject for current target
     [SerializeField] private float closestEnemy = 0;   //stores closest distance from gameobject to this
     [SerializeField] private float newdDist = 0;  //stores individual gameobject distances
-    
 
 
+    [Header("arrow generation")]
+
+    public GameObject arrow;
+    public Transform firepoint;
+    public Vector3 targetposition;
+    [SerializeField] Transform Targetposition;
+
+
+
+    [Header("Reloading")]
+
+    private float reloadTime = 1f;
+    public int maxAmmo = 1;
+    private int CurrentAmmo;
+    private bool isreloading = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        CurrentAmmo = maxAmmo;
 
 
 
@@ -29,8 +48,28 @@ public class archerbehaviour : MonoBehaviour
     void Update()
     {
 
+        if (isreloading)
+        {
+            return;
+        }
+
         //if(closesttarget == on)
-        targetclosest();   
+
+        if (CurrentAmmo <=0)
+        {
+            StartCoroutine(reload());
+            return;
+        }
+
+        if (targetlist != null)
+        {
+
+            firArrow();
+           
+
+        }
+
+           
 
         //if(targetfirst == on)
         //Target = targetlist[0];
@@ -44,7 +83,26 @@ public class archerbehaviour : MonoBehaviour
 
     }
 
-    void targetclosest()
+
+
+   
+
+
+    IEnumerator reload()
+    {
+
+        isreloading = true;
+
+        yield return new WaitForSeconds(reloadTime);
+
+        CurrentAmmo = maxAmmo;
+        Debug.Log("reloading");
+
+        isreloading = false;
+
+    }
+
+    public Transform targetclosest()
     {
 
 
@@ -74,6 +132,7 @@ public class archerbehaviour : MonoBehaviour
 
                     Target = targetlist[i];     //sets the new target to the gameobject found to be closer
                     newdDist = closestEnemy;     //sets the new benchmark to beat for the next game object
+                    
 
                 }
 
@@ -81,13 +140,32 @@ public class archerbehaviour : MonoBehaviour
             }
 
 
+
+            Targetposition = Target.transform;   //get the position of the target
+
+            return Targetposition;   //method returns target position
+
         }
 
 
 
-
+        return null;  //will return null if this method is called while there are no targets
     }
 
+    private void firArrow()
+    {
+
+
+
+     
+
+        GameObject bulletGO = (GameObject)Instantiate(arrow,firepoint.position, firepoint.rotation);
+        bulletGO.GetComponent<arrowmovement>().setTarget(targetclosest());
+        CurrentAmmo--;
+
+
+
+    }
 
 
 
@@ -108,15 +186,7 @@ public class archerbehaviour : MonoBehaviour
 
         targetlist.Remove(collision.gameObject);        //once it leave the radius its taken off the targets list
 
-      
-
-
-
-
     }
-
-
-
 
 
 }
