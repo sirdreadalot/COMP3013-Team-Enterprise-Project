@@ -2830,7 +2830,7 @@ GameObject:
   - component: {fileID: 1980612028}
   - component: {fileID: 1980612033}
   - component: {fileID: 1980612032}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
