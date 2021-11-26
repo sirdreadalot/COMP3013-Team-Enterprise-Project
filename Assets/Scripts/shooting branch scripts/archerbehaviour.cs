@@ -102,7 +102,7 @@ public class archerbehaviour : MonoBehaviour
 
     }
 
-    public Transform targetclosest()
+    public Transform targetClosest()
     {
 
 
@@ -160,7 +160,7 @@ public class archerbehaviour : MonoBehaviour
      
 
         GameObject bulletGO = (GameObject)Instantiate(arrow,firepoint.position, firepoint.rotation);
-        bulletGO.GetComponent<arrowmovement>().setTarget(targetclosest());
+        bulletGO.GetComponent<arrowmovement>().setTarget(targetClosest());
         CurrentAmmo--;
 
 
