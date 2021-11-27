@@ -1,6 +1,7 @@
 # COMP3013-Team-Enterprise-Project
 
 The team consits of:
+
 James Yarnold - Project Manager
 
 Jordan Wilson - Technical Director
