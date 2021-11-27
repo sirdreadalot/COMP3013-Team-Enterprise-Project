@@ -2,7 +2,9 @@
 
 The team consits of:
 James Yarnold - Project Manager
+
 Jordan Wilson - Technical Director
+
 Chessen Clook - QA + UX Guru
 
 Our project is a isometric tower-defence game, based on the traditional template for the genre with our own twist.
