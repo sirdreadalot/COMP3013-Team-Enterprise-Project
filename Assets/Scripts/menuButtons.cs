@@ -21,7 +21,7 @@ public class menuButtons : MonoBehaviour
 
     public void ReturnToGame()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 1;
         pauseMenuCanvas.SetActive(false);
     }
 
