@@ -55,7 +55,7 @@ public class arrowmovement : MonoBehaviour
 
     void hitTarget()
     {
-        //Debug.Log("hit");
+        Debug.Log("hit");
 
 
     }
