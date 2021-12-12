@@ -46,7 +46,7 @@ public class arrowmovement : MonoBehaviour
         transform.Translate(dir.normalized * disThisFrame, Space.World);
 
 
-        Debug.Log(target);
+        //Debug.Log(target);
 
        
      
@@ -55,7 +55,7 @@ public class arrowmovement : MonoBehaviour
 
     void hitTarget()
     {
-        Debug.Log("hit");
+        //Debug.Log("hit");
 
 
     }
