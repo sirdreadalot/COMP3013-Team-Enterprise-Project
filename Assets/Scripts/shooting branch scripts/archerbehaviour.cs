@@ -96,7 +96,7 @@ public class archerbehaviour : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
 
         CurrentAmmo = maxAmmo;
-        Debug.Log("reloading");
+        //Debug.Log("reloading");
 
         isreloading = false;
 
@@ -173,18 +173,30 @@ public class archerbehaviour : MonoBehaviour
     {
 
 
-      
-      
-        targetlist.Add(collision.gameObject);       //when a Gameobject gets in range its added to a list of potential targets
-  
+        if (collision.tag == "Enemy")
+        {
 
+
+
+
+            targetlist.Add(collision.gameObject);       //when a Gameobject gets in range its added to a list of potential targets
+
+        }
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        targetlist.Remove(collision.gameObject);        //once it leave the radius its taken off the targets list
+
+        if (collision.tag == "Enemy")
+        {
+
+
+            targetlist.Remove(collision.gameObject);        //once it leave the radius its taken off the targets list
+
+
+        }
 
     }
 
