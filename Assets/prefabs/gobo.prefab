@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 389333084330829572}
   - component: {fileID: 389333084330829575}
   - component: {fileID: 389333084330829574}
-  - component: {fileID: 5134491838457534727}
+  - component: {fileID: -9144033284200347671}
   m_Layer: 0
   m_Name: gobo
   m_TagString: enemey
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
---- !u!114 &5134491838457534727
+--- !u!114 &-9144033284200347671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

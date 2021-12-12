@@ -22,14 +22,24 @@ public class healthAndDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
+
+
+        
+
         //Check to see if the tag on the collider is equal to Arrow
-        if (other.tag == "Arrow")
+        if (collision.tag == "Arrow")
         {
 
 
