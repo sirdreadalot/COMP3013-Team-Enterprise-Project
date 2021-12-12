@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class healthAndDamage : MonoBehaviour
 {
@@ -9,19 +10,23 @@ public class healthAndDamage : MonoBehaviour
 
     [SerializeField]
     private int Health = 100;
-
-
-
-
+    public Slider slider;
 
     void Start()
     {
         
+        Debug.Log(slider);
+         
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+       
+        
+
 
         if (Health <= 0)
         {
@@ -44,6 +49,8 @@ public class healthAndDamage : MonoBehaviour
 
 
             Health -= 50;
+            slider.value = Health;
+           
             Debug.Log("Triggered by Enemy");
 
 
