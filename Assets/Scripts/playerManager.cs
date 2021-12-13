@@ -17,7 +17,7 @@ public class playerManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 1;
+            Time.timeScale = 0;
             pauseMenuCanvas.SetActive(true);
         }
     
