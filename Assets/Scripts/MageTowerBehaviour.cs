@@ -3,44 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
-
-public class archerbehaviour : MonoBehaviour
+using UnityEngine.UI;
+public class MageTowerBehaviour : MonoBehaviour
 {
 
 
 
-   
     [Header("targeting behaviour")]
-   
+
     [SerializeField] private List<GameObject> targetlist = new List<GameObject>(); //will store all enemies in give collision radius   
-    [SerializeField]  GameObject Target;  //store gameobject for current target
+    [SerializeField] private GameObject Target;  //store gameobject for current target
+    [SerializeField] private GameObject OldTarget;  //store gameobject for previous target
+
+    [SerializeField] private String TargetTag;
+
     [SerializeField] private float closestEnemy = 0;   //stores closest distance from gameobject to this
     [SerializeField] private float newdDist = 0;  //stores individual gameobject distances
 
+    [SerializeField] private LineRenderer Line;
 
-    [Header("arrow generation")]
-
-    public GameObject arrow;
-    public Transform firepoint;
-    public Vector3 targetposition;
-    [SerializeField] Transform Targetposition;
+    [SerializeField] private Transform Targetposition;
 
 
 
-    [Header("Reloading")]
 
-    private float reloadTime = 1f;
-    public int maxAmmo = 1;
-    private int CurrentAmmo;
-    private bool isreloading = false;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        CurrentAmmo = maxAmmo;
-
-
+        
+        Line = GetComponentInChildren<LineRenderer>();
+       
 
     }
 
@@ -48,59 +43,47 @@ public class archerbehaviour : MonoBehaviour
     void Update()
     {
 
-        if (isreloading)
-        {
-            return;
-        }
+        targetClosest();
+        
 
-        //if(closesttarget == on)
 
-        if (CurrentAmmo <=0)
-        {
-            StartCoroutine(reload());
-            return;
-        }
+
 
         if (targetlist.Count() != 0)
         {
+            
+            Line.enabled = true;
+            Line.SetPosition(1, gameObject.transform.InverseTransformPoint(Target.transform.position));
+            TargetTag = Target.tag;
+            
 
-            firArrow();
-           
+            if (TargetTag == "Goblin")
+            {
+                Target.GetComponent<healthAndDamage>().Health -= 0.05f;
+                Target.GetComponent<healthAndDamage>().Lightningnest();
+ 
+            }
+            if (TargetTag == "Orc")
+            {
+                Target.GetComponent<healthAndDamage>().Health -= 0.15f;
+                Target.GetComponent<healthAndDamage>().Lightningnest();
+            }
 
         }
-
+        else
+        {
+            Line.enabled = false;
            
+        }
 
-        //if(targetfirst == on)
-        //Target = targetlist[0];
-
-        //if(targetLast == on)
-        //Target = targetlist.LastOrDefault();
-
-
+        
 
 
 
     }
 
 
-
-   
-
-
-    IEnumerator reload()
-    {
-
-        isreloading = true;
-
-        yield return new WaitForSeconds(reloadTime);
-
-        CurrentAmmo = maxAmmo;
-        //Debug.Log("reloading");
-
-        isreloading = false;
-
-    }
+ 
 
     public Transform targetClosest()
     {
@@ -132,40 +115,23 @@ public class archerbehaviour : MonoBehaviour
 
                     Target = targetlist[i];     //sets the new target to the gameobject found to be closer
                     newdDist = closestEnemy;     //sets the new benchmark to beat for the next game object
-                    
+
 
                 }
 
 
             }
 
-
-
             Targetposition = Target.transform;   //get the position of the target
 
             return Targetposition;   //method returns target position
 
+           
         }
-
-
 
         return null;  //will return null if this method is called while there are no targets
     }
 
-    private void firArrow()
-    {
-
-
-
-     
-
-        GameObject bulletGO = (GameObject)Instantiate(arrow,firepoint.position, firepoint.rotation);
-        bulletGO.GetComponent<arrowmovement>().setTarget(targetClosest());
-        CurrentAmmo--;
-
-
-
-    }
 
 
 

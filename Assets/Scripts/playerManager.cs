@@ -10,7 +10,7 @@ public class playerManager : MonoBehaviour
 
     // Various public variables.
     public int baseHealth = 100;
-    public int playerCurrency = 10;
+    public int playerCurrency = 0;
 
     private void Update()
     {
@@ -22,5 +22,14 @@ public class playerManager : MonoBehaviour
         }
     
     }
+
+
+    public void addCoins( int coinsToAdd)
+    {
+
+        playerCurrency += coinsToAdd;
+
+    }
+
 
 }
