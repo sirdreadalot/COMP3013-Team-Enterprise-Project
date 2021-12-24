@@ -4460,6 +4460,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6130330757798806048, guid: f05f803661150df48a5f8206a890a8c2, type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 5617972966828642426, guid: 8cd0d1ece620ca24da60650779c04943, type: 3}
     - target: {fileID: 6130330758155822852, guid: f05f803661150df48a5f8206a890a8c2, type: 3}
       propertyPath: m_Name
       value: archer tower
@@ -5627,26 +5631,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6413551999575513585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6413551999575513588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d86a2facf9e5874ba84dfbac323eb75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetlist: []
-  Target: {fileID: 0}
-  closestEnemy: 0
-  newdDist: 0
-  arrow: {fileID: 2617928954579560604, guid: 6b4366109ba0fb74da46dd449fbd0f0a, type: 3}
-  firepoint: {fileID: 6413551999229266717}
-  Targetposition: {fileID: 0}
-  maxAmmo: 1
 --- !u!1 &6413551999575513588
 GameObject:
   m_ObjectHideFlags: 0
@@ -5659,7 +5643,7 @@ GameObject:
   - component: {fileID: 6413551999575513589}
   - component: {fileID: 6413551999575513591}
   - component: {fileID: 6413551999575513584}
-  - component: {fileID: 6413551999575513585}
+  - component: {fileID: 6413551999575513592}
   m_Layer: 6
   m_Name: Fire Tower
   m_TagString: Archer
@@ -5749,6 +5733,26 @@ CircleCollider2D:
   m_Offset: {x: -0.36971384, y: 0}
   serializedVersion: 2
   m_Radius: 19.070032
+--- !u!114 &6413551999575513592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6413551999575513588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d86a2facf9e5874ba84dfbac323eb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetlist: []
+  Target: {fileID: 0}
+  closestEnemy: 0
+  newdDist: 0
+  Projectile: {fileID: 2617928954579560604, guid: 6b4366109ba0fb74da46dd449fbd0f0a, type: 3}
+  firepoint: {fileID: 6413551999229266717}
+  Targetposition: {fileID: 0}
+  maxAmmo: 1
 --- !u!1 &6413551999765806293
 GameObject:
   m_ObjectHideFlags: 0
@@ -5759,7 +5763,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6413551999765806294}
   - component: {fileID: 6413551999765806295}
-  - component: {fileID: 6413551999765806296}
   m_Layer: 0
   m_Name: Fire Tower
   m_TagString: Untagged
@@ -5808,23 +5811,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6413551999765806296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6413551999765806293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc602817cefa834aadd871318ad1b0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetlist: []
-  Target: {fileID: 0}
-  closestEnemy: 0
-  newdDist: 0
-  arrow: {fileID: 0}
-  firepoint: {fileID: 0}
-  Targetposition: {fileID: 0}
-  maxAmmo: 1

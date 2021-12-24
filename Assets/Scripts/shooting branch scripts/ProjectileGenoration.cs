@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-public class archerbehaviour : MonoBehaviour
+public class ProjectileGenoration : MonoBehaviour
 {
 
 
@@ -18,11 +18,10 @@ public class archerbehaviour : MonoBehaviour
     [SerializeField] private float newdDist = 0;  //stores individual gameobject distances
 
 
-    [Header("arrow generation")]
+    [Header("projectile generation")]
 
-    public GameObject arrow;
+    public GameObject Projectile;
     public Transform firepoint;
-    //public Vector3 targetposition;
     [SerializeField] Transform Targetposition;
 
 
@@ -159,7 +158,7 @@ public class archerbehaviour : MonoBehaviour
 
      
 
-        GameObject bulletGO = (GameObject)Instantiate(arrow,firepoint.position, firepoint.rotation);
+        GameObject bulletGO = (GameObject)Instantiate(Projectile,firepoint.position, firepoint.rotation);
         bulletGO.GetComponent<Projectile>().setTarget(targetClosest());
         CurrentAmmo--;
 
