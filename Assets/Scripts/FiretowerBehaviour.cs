@@ -4,16 +4,19 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-public class archerbehaviour : MonoBehaviour
+
+public class FiretowerBehaviour : MonoBehaviour
 {
+
+    
 
 
 
    
     [Header("targeting behaviour")]
-   
+
     [SerializeField] private List<GameObject> targetlist = new List<GameObject>(); //will store all enemies in give collision radius   
-    [SerializeField]  GameObject Target;  //store gameobject for current target
+    [SerializeField] GameObject Target;  //store gameobject for current target
     [SerializeField] private float closestEnemy = 0;   //stores closest distance from gameobject to this
     [SerializeField] private float newdDist = 0;  //stores individual gameobject distances
 
@@ -55,7 +58,7 @@ public class archerbehaviour : MonoBehaviour
 
         //if(closesttarget == on)
 
-        if (CurrentAmmo <=0)
+        if (CurrentAmmo <= 0)
         {
             StartCoroutine(reload());
             return;
@@ -65,11 +68,11 @@ public class archerbehaviour : MonoBehaviour
         {
 
             firArrow();
-           
+
 
         }
 
-           
+
 
         //if(targetfirst == on)
         //Target = targetlist[0];
@@ -85,7 +88,7 @@ public class archerbehaviour : MonoBehaviour
 
 
 
-   
+
 
 
     IEnumerator reload()
@@ -132,7 +135,7 @@ public class archerbehaviour : MonoBehaviour
 
                     Target = targetlist[i];     //sets the new target to the gameobject found to be closer
                     newdDist = closestEnemy;     //sets the new benchmark to beat for the next game object
-                    
+
 
                 }
 
@@ -157,9 +160,9 @@ public class archerbehaviour : MonoBehaviour
 
 
 
-     
 
-        GameObject bulletGO = (GameObject)Instantiate(arrow,firepoint.position, firepoint.rotation);
+
+        GameObject bulletGO = (GameObject)Instantiate(arrow, firepoint.position, firepoint.rotation);
         bulletGO.GetComponent<Projectile>().setTarget(targetClosest());
         CurrentAmmo--;
 
@@ -202,3 +205,4 @@ public class archerbehaviour : MonoBehaviour
 
 
 }
+

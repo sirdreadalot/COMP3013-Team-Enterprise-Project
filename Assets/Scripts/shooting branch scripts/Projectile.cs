@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class arrowmovement : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
 
+    [SerializeField] private String Tag;
 
     private Transform target;
 
@@ -13,6 +15,11 @@ public class arrowmovement : MonoBehaviour
 
     public void setTarget(Transform TARGET)
     {
+
+        Tag = gameObject.tag;
+
+     
+
 
         target = TARGET;
 
@@ -23,7 +30,7 @@ public class arrowmovement : MonoBehaviour
     void Update()
     {
 
-        if (target== null)
+        if (target == null)
         {
             Destroy(gameObject);
             return;
@@ -55,7 +62,13 @@ public class arrowmovement : MonoBehaviour
 
     void hitTarget()
     {
-        //Debug.Log("hit");
+
+        if (Tag == "FireBall")
+        {
+
+            target.GetComponent<healthAndDamage>().FireNest();
+
+        }
 
 
     }

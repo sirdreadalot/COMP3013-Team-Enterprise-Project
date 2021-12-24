@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 146525198}
   m_Layer: 0
   m_Name: gobo
-  m_TagString: Enemy
+  m_TagString: Goblin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,6 +326,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   slider: {fileID: 7191444428887223315}
+  HitByLightning: 0
+  HitByAcid: 0
+  HitByFire: 0
+  HitByIce: 0
+  twoBoolsActive: 0
 --- !u!1 &422540624491815365
 GameObject:
   m_ObjectHideFlags: 0

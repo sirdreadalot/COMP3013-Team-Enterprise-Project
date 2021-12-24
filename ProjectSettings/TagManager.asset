@@ -11,6 +11,10 @@ TagManager:
   - Orc
   - Player Manager
   - enemey
+  - Ogre
+  - Fire Tower
+  - Mage
+  - FireBall
   layers:
   - Default
   - TransparentFX
