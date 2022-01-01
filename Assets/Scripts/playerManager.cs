@@ -14,7 +14,7 @@ public class playerManager : MonoBehaviour
 
     private void Update()
     {
-
+        // Allows the player to pause time by accessing the pause menu when pressing the 'esc' key.
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 0;
@@ -29,6 +29,11 @@ public class playerManager : MonoBehaviour
 
         playerCurrency += coinsToAdd;
 
+    }
+
+    public void removeCoins(int coinsToRemove)
+    {
+        playerCurrency -= coinsToRemove;
     }
 
 

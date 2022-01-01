@@ -15,6 +15,7 @@ TagManager:
   - Fire Tower
   - Mage
   - FireBall
+  - ArcherTower
   layers:
   - Default
   - TransparentFX
