@@ -16,6 +16,8 @@ TagManager:
   - Mage
   - FireBall
   - ArcherTower
+  - AcidSplat
+  - Frost
   layers:
   - Default
   - TransparentFX

@@ -70,6 +70,23 @@ public class Projectile : MonoBehaviour
 
         }
 
+        if (Tag == "AcidSplat")
+        {
+
+            target.GetComponent<healthAndDamage>().AcidNest();
+
+        }
+
+        if (Tag == "Frost")
+        {
+
+            target.GetComponent<healthAndDamage>().IceNest();
+
+        }
+
+
+
+
 
     }
 

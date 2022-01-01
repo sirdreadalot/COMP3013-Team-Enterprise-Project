@@ -125,7 +125,7 @@ public class healthAndDamage : MonoBehaviour
     {
 
 
-        if (HitByLightning == false && twoBoolsActive == false)
+        if (HitByLightning == false )
         {
             StartCoroutine(Lightning());
         }
@@ -152,7 +152,7 @@ public class healthAndDamage : MonoBehaviour
     {
 
 
-        if (HitByFire == false && twoBoolsActive == false)
+        if (HitByFire == false )
         {
             StartCoroutine(Fire());
         }
@@ -207,11 +207,47 @@ public class healthAndDamage : MonoBehaviour
     {
 
 
-        if (HitByIce == false && twoBoolsActive == false)
+        if (HitByIce == false )
         {
             StartCoroutine(Ice());
         }
         else { return; }
+
+        if (HitByIce == true)
+        {
+
+            if (Tag == "Goblin")
+            {
+
+                Health -= 10f;
+
+                //half speed
+
+            }
+            if (Tag == "Orc")
+            {
+
+                Health -= 10f;
+
+                //half speed
+
+            }
+            if (Tag == "Ogre")
+            {
+
+                Health -= 10f;
+
+                //half speed
+
+            }
+
+
+
+
+        }
+        
+
+
 
 
     }
@@ -229,27 +265,59 @@ public class healthAndDamage : MonoBehaviour
 
     }
 
-    IEnumerator AcidNest()
+    public void AcidNest()
     {
-        HitByAcid = true;
+        if (HitByAcid == false )
+        {
+            StartCoroutine(Acid());
+        }
+        else { return; }
+
+
+
+
+        if (HitByAcid == true)
+        {
+
+            if (Tag == "Goblin")
+            {
+
+                Health -= 25f;
+
+
+
+            }
+            if (Tag == "Orc")
+            {
+
+                Health -= 25f;
+
+
+
+            }
+            if (Tag == "Ogre")
+            {
+
+                Health -= 100f;
+
+
+            }
+
+
+        }
+
+
+    }
+
+    IEnumerator Acid()
+    {
+        HitByAcid  = true;
 
 
         yield return new WaitForSeconds(1);
 
 
         HitByAcid = false;
-
-    }
-
-    IEnumerator Acid()
-    {
-        HitByIce = true;
-
-
-        yield return new WaitForSeconds(1);
-
-
-        HitByIce = false;
 
     }
 
