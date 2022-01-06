@@ -13,7 +13,7 @@ public class Follow : MonoBehaviour
 
     private Vector2 objectPosition;
 
-    private float speedModifier;
+    public float speedModifier;
 
     private bool coroutineAllowed;
 

@@ -13,12 +13,24 @@ public class healthAndDamage : MonoBehaviour
     public Slider slider;
     private String Tag;
     private playerManager passToManager;
+
+
+    [Header("Hit by elements")]
     [SerializeField] public bool HitByLightning = false;
     [SerializeField] public bool HitByAcid = false;
     [SerializeField] public bool HitByFire = false;
     [SerializeField] public bool HitByIce = false;
 
+
+    [Header("Active Elemental Effects")]
+
     [SerializeField] public bool twoBoolsActive = false;
+    [SerializeField] public bool LightningFireDamage = false;
+
+
+    [SerializeField] public bool IceFireDamage = false;
+
+
 
 
 
@@ -33,7 +45,8 @@ public class healthAndDamage : MonoBehaviour
 
         if (Tag == "Goblin")
         {
-            Health = 100;
+            Health = 10000;
+            slider.maxValue = 10000;
         }
 
         if (Tag == "Orc")
@@ -52,14 +65,68 @@ public class healthAndDamage : MonoBehaviour
 
     }
 
-   
+
+
+    IEnumerator ElementMixing()
+    {
+
+        if (Tag == "Goblin" && HitByFire == true && HitByIce ==true && twoBoolsActive == false)
+        {
+            twoBoolsActive = true;
+            IceFireDamage = true;
+            Health -= 50;
+            yield return new WaitForSeconds(0.5f);
+            twoBoolsActive = false;
+            IceFireDamage = false;
+        }
+
+        if (HitByFire == true && HitByLightning == true && twoBoolsActive == false)
+        {
+            twoBoolsActive = true;
+
+
+            Follow Follow = GetComponent<Follow>();
+            Follow.speedModifier = 0;
+            LightningFireDamage = true;
+
+
+            yield return new WaitForSeconds(2);
+
+            Follow.speedModifier = 0.5f;
+            
+
+
+            yield return new WaitForSeconds(2);
+            LightningFireDamage = false;
+            twoBoolsActive = false;
+        }
+
+
+
+
+
+
+    }
+
+
+
+
 
     // Update is called once per frame
     void Update()
     {
 
-        slider.value = Health;
 
+       
+
+            slider.value = Health;
+        StartCoroutine(ElementMixing());
+
+        if (LightningFireDamage == true)
+        {
+            Health -= 0.01f;
+        }
+     
 
         if (HitByLightning == true)
         {
@@ -141,7 +208,7 @@ public class healthAndDamage : MonoBehaviour
         HitByLightning = true;
 
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
 
         HitByLightning = false;
@@ -196,7 +263,7 @@ public class healthAndDamage : MonoBehaviour
         HitByFire = true;
 
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
 
         HitByFire = false;
@@ -258,8 +325,13 @@ public class healthAndDamage : MonoBehaviour
         HitByIce = true;
 
 
+        Follow Follow = GetComponent<Follow>();
+        Follow.speedModifier = 0.2f;
+        LightningFireDamage = true;
+
         yield return new WaitForSeconds(1);
 
+        Follow.speedModifier = 0.5f;
 
         HitByIce = false;
 
@@ -314,7 +386,7 @@ public class healthAndDamage : MonoBehaviour
         HitByAcid  = true;
 
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
 
         HitByAcid = false;

@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0, y: -0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2654693719437014745
@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 389333084330829575}
   - component: {fileID: 389333084330829574}
   - component: {fileID: 146525198}
+  - component: {fileID: 796169870}
   m_Layer: 0
   m_Name: gobo
   m_TagString: Goblin
@@ -195,7 +196,7 @@ Transform:
   m_GameObject: {fileID: 389333084330829593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.240002, y: 0.12999994, z: -0.51673424}
-  m_LocalScale: {x: 0.1386, y: 0.1228, z: 1}
+  m_LocalScale: {x: 0.07714476, y: 0.06835048, z: 0.5566}
   m_Children:
   - {fileID: 7516559704970820780}
   m_Father: {fileID: 0}
@@ -331,6 +332,29 @@ MonoBehaviour:
   HitByFire: 0
   HitByIce: 0
   twoBoolsActive: 0
+--- !u!114 &796169870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389333084330829593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a871dff10c69041859779567e599c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  routes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &422540624491815365
 GameObject:
   m_ObjectHideFlags: 0
