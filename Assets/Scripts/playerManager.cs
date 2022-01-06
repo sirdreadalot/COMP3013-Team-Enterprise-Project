@@ -10,14 +10,20 @@ public class playerManager : MonoBehaviour
 
 
     // Various public variables.
-    public int playerHealth;
+    public HealthBar healthbar;
+    public int playerMaxHealth;
+    public int playerCurrentHealth;
     public int playerCurrency = 0;
 
-    private void Update()
+    void Start()
     {
+        playerMaxHealth = 100;
+        playerCurrentHealth = playerMaxHealth;
+        healthbar.SetMaxHealth(playerMaxHealth);
+    }
 
-        
-
+    void Update()
+    {
         // Allows the player to pause time by accessing the pause menu when pressing the 'esc' key.
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -27,12 +33,7 @@ public class playerManager : MonoBehaviour
     
     }
 
-    private void Start()
-    {
-        playerHealth = 100;
-    }
-
-
+ 
     public void addCoins( int coinsToAdd)
     {
 
@@ -47,6 +48,7 @@ public class playerManager : MonoBehaviour
 
     public void damagePlayer(int damage)
     {
-        playerHealth -= damage;
+        playerCurrentHealth = playerCurrentHealth - damage;
+        healthbar.SetHealth(playerCurrentHealth);
     }
 }
