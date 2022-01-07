@@ -11,25 +11,23 @@ public class healthAndDamage : MonoBehaviour
 
     [SerializeField] public float Health;
     public Slider slider;
-    private String Tag;
-    private playerManager passToManager;
+    private String Tag; //script is shared between enemies so this lets parts of code know what type of enemies its on
+    private playerManager passToManager; //allows connection of the scripts
 
 
     [Header("Hit by elements")]
     [SerializeField] public bool HitByLightning = false;
-    [SerializeField] public bool HitByAcid = false;
+    [SerializeField] public bool HitByAcid = false;                 //These are for testing purposes and allow us to see which element has hit the target
     [SerializeField] public bool HitByFire = false;
     [SerializeField] public bool HitByIce = false;
 
 
     [Header("Active Elemental Effects")]
 
-    [SerializeField] public bool twoBoolsActive = false;
-    [SerializeField] public bool LightningFireDamage = false;
-
-
-    [SerializeField] public bool IceFireDamage = false;
-
+    [SerializeField] public bool twoBoolsActive = false; //is there an effect active
+    [SerializeField] public bool LightningFireDamage = false;           
+   [SerializeField] public bool IceFireDamage = false;              //which effect is active
+    [SerializeField] public bool AcidFireDamage = false;
 
 
 
@@ -38,76 +36,32 @@ public class healthAndDamage : MonoBehaviour
 
     void Start()
     {
-        HitByLightning = false;
+ 
         passToManager = FindObjectOfType<playerManager>();
       
-        Tag = gameObject.tag;
+        Tag = gameObject.tag;  //gets tag of gameObject
 
         if (Tag == "Goblin")
         {
             Health = 10000;
-            slider.maxValue = 10000;
+           
         }
 
         if (Tag == "Orc")
-        {
-            slider.maxValue = 300;
+        {                                           //sets health of enemies. slider max value is also set        
             Health = 300;
+            
         }
         if (Tag == "Ogre")
-        {
-            slider.maxValue = 500;
+        {          
             Health = 500;
-        }
-
-
-
-
-    }
-
-
-
-    IEnumerator ElementMixing()
-    {
-
-        if (Tag == "Goblin" && HitByFire == true && HitByIce ==true && twoBoolsActive == false)
-        {
-            twoBoolsActive = true;
-            IceFireDamage = true;
-            Health -= 50;
-            yield return new WaitForSeconds(0.5f);
-            twoBoolsActive = false;
-            IceFireDamage = false;
-        }
-
-        if (HitByFire == true && HitByLightning == true && twoBoolsActive == false)
-        {
-            twoBoolsActive = true;
-
-
-            Follow Follow = GetComponent<Follow>();
-            Follow.speedModifier = 0;
-            LightningFireDamage = true;
-
-
-            yield return new WaitForSeconds(2);
-
-            Follow.speedModifier = 0.5f;
             
-
-
-            yield return new WaitForSeconds(2);
-            LightningFireDamage = false;
-            twoBoolsActive = false;
         }
 
-
-
-
+        slider.maxValue = Health;
 
 
     }
-
 
 
 
@@ -119,16 +73,18 @@ public class healthAndDamage : MonoBehaviour
 
        
 
-            slider.value = Health;
-        StartCoroutine(ElementMixing());
+        slider.value = Health; //once damage is done the slider updates on the next frame
+
+
+        StartCoroutine(ElementMixing()); //checks to see if any elemental mixing statements are valid -> damage for them are done in the method
 
         if (LightningFireDamage == true)
         {
-            Health -= 0.01f;
+            Health -= 0.01f;          // lightning damage work differently in that it hurts over time. if the effect sets LightningFireDamage to true for x seconds update will add that to damage each frame
         }
      
 
-        if (HitByLightning == true)
+        if (HitByLightning == true)  //lightning damage work differently in that it hurts over time. while its being targeted and hit itll hurt, this is why lightning damage appears in update
         {
 
             if (Tag == "Goblin")
@@ -142,7 +98,7 @@ public class healthAndDamage : MonoBehaviour
             if (Tag == "Orc")
             {
 
-                Health -= 0.15f;
+                Health -= 0.15f;   //Orcs are set to take more lightning damage
                 
 
             }
@@ -169,7 +125,7 @@ public class healthAndDamage : MonoBehaviour
             if (Tag == "Orc")
             {
 
-                passToManager.addCoins(20);
+                passToManager.addCoins(20);             //adds coins for each enemy death. the bigger the enemy (in descending order here) the more dollar gotten
 
             }
             if (Tag == "Ogre")
@@ -187,14 +143,23 @@ public class healthAndDamage : MonoBehaviour
 
         
     }
+    
 
+    // Elemental damage works starting with the projectile. the projectile script will have its own tag depending on the prefab its instantiating.
+    // once they collide (enemy + projectile) it calls upon nested methods here in the healthanddamage script to deal the damage.
+    // the nested statments call the repective couroutines that say the target was hit by the specific element that set true for a certain amount of time.
+    // the times are being balanced, the smaller the time and elements has to remain true the smaller the chance other elements have to hit the same target and activate the element mixing statments.
+   
+
+    /// //////////////////LIGHTNING DAMAGE/////////////////////////////////////////
+    
     public void LightningNest()
     {
 
 
-        if (HitByLightning == false )
+        if (HitByLightning == false )   //if its already hit then theres no need to trigger the couroutine
         {
-            StartCoroutine(Lightning());
+            StartCoroutine(Lightning());    //makes it so if it is now recognised its hit by lightning
         }
         else { return; }
 
@@ -208,30 +173,32 @@ public class healthAndDamage : MonoBehaviour
         HitByLightning = true;
 
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f);      //the wait for seconds is so other elements have a chance to also get recognised so elemental mixing statements can get triggered
 
 
-        HitByLightning = false;
+        HitByLightning = false; 
 
     }
-
+   
+    /// ///////////////////////FIRE DAMAGE/////////////////////////////////////////////////
+   
     public void FireNest()
     {
 
 
-        if (HitByFire == false )
+        if (HitByFire == false )        //if fire nest is called while is already recgonised its hit by fire we can skip calling the couroutine that recognises it again and move onto damage
         {
             StartCoroutine(Fire());
         }
         
 
-        if (HitByFire == true)
+        if (HitByFire == true) //only do damage if the target is hit
         {
 
             if (Tag == "Goblin")
             {
 
-                Health -= 50f;
+                Health -= 50f;      //goblins take more fire damage
 
 
 
@@ -263,12 +230,18 @@ public class healthAndDamage : MonoBehaviour
         HitByFire = true;
 
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f);      //the element of fire is recognised on this target for the waitforseconds time count.
+                                                                
 
 
         HitByFire = false;
 
     }
+
+
+
+/// ////////////////////////////ICE DAMAGE///////////////////////////////////////
+
 
     public void IceNest()
     {
@@ -278,7 +251,7 @@ public class healthAndDamage : MonoBehaviour
         {
             StartCoroutine(Ice());
         }
-        else { return; }
+        
 
         if (HitByIce == true)
         {
@@ -288,15 +261,14 @@ public class healthAndDamage : MonoBehaviour
 
                 Health -= 10f;
 
-                //half speed
+                
 
             }
             if (Tag == "Orc")
-            {
+            {                                           //ice damage is constistant
 
                 Health -= 10f;
 
-                //half speed
 
             }
             if (Tag == "Ogre")
@@ -304,11 +276,12 @@ public class healthAndDamage : MonoBehaviour
 
                 Health -= 10f;
 
-                //half speed
+                
 
             }
 
-
+            Follow FollowIce = GetComponent<Follow>();          //the purpose of ice towers are to slow enemies, this reduces the speed modifier in the Follow script
+            FollowIce.speedModifier = 0.2f;
 
 
         }
@@ -325,17 +298,22 @@ public class healthAndDamage : MonoBehaviour
         HitByIce = true;
 
 
-        Follow Follow = GetComponent<Follow>();
-        Follow.speedModifier = 0.2f;
-        LightningFireDamage = true;
+       
 
         yield return new WaitForSeconds(1);
 
-        Follow.speedModifier = 0.5f;
+        Follow FollowIce = GetComponent<Follow>();
+        FollowIce.speedModifier = 0.5f;
 
         HitByIce = false;
 
     }
+
+
+    
+    /// ////////////////////////////ACID DAMAGE//////////////////////////////////////
+    
+
 
     public void AcidNest()
     {
@@ -370,7 +348,7 @@ public class healthAndDamage : MonoBehaviour
             if (Tag == "Ogre")
             {
 
-                Health -= 100f;
+                Health -= 100f;                     //larger enemies take more acid damage
 
 
             }
@@ -394,14 +372,70 @@ public class healthAndDamage : MonoBehaviour
     }
 
 
+    // elemental mixing happens when 2 of the "Hit by elements" bools become true and the target hasnt already got an effect on it.
+   
 
+
+    IEnumerator ElementMixing()
+    {
+
+        if (Tag == "Goblin" && HitByFire == true && HitByIce == true && twoBoolsActive == false)        //small enemies take this sort of extra damage
+        {
+            twoBoolsActive = true;
+            IceFireDamage = true;
+            Health -= 50;
+            yield return new WaitForSeconds(0.5f);              //does an extra 50 damage straight away
+            twoBoolsActive = false;
+            IceFireDamage = false;
+        }
+
+        /////////////////////////////////////////////
+
+        if (HitByFire == true && HitByLightning == true && twoBoolsActive == false)  //fire and lightning mix hits all targets
+        {
+            twoBoolsActive = true;
+
+
+            Follow Follow = GetComponent<Follow>();
+            Follow.speedModifier = 0;
+            LightningFireDamage = true;         //adds extra lighning damage, damage is added in update()
+
+
+            yield return new WaitForSeconds(2);     //stuns (sets movement speed) to 0
+
+            Follow.speedModifier = 0.5f;         //sets it back to normal
+
+
+
+            yield return new WaitForSeconds(2);
+            LightningFireDamage = false;            //stops extra damage
+            twoBoolsActive = false;         //allows for another effect to happen
+        }
+
+        /////////////////////////////////////////////////
+
+        if (Tag == "Ogre" || Tag == "Orc")      //only medium enemies take this effect
+        {
+
+            if (HitByFire == true && HitByIce == true && twoBoolsActive == false)
+            {
+                twoBoolsActive = true;
+                AcidFireDamage = true;
+                Health -= 100;                              //takes extra damage straight away
+                yield return new WaitForSeconds(0.5f);
+                twoBoolsActive = false;
+                AcidFireDamage = false;
+            }
+
+        }
+
+        //////////////////////////////////////////////////////////
+
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-
-
-        
 
         //Check to see if the tag on the collider is equal to Arrow
         if (collision.tag == "Arrow")
@@ -419,14 +453,6 @@ public class healthAndDamage : MonoBehaviour
             {
                 Health -= 25;
             }
-
-
-
-
-
-
-
-
 
         }
     }
