@@ -26,7 +26,7 @@ public class healthAndDamage : MonoBehaviour
 
     [SerializeField] public bool twoBoolsActive = false; //is there an effect active
     [SerializeField] public bool LightningFireDamage = false;           
-   [SerializeField] public bool IceFireDamage = false;              //which effect is active
+    [SerializeField] public bool IceFireDamage = false;              //which effect is active
     [SerializeField] public bool AcidFireDamage = false;
 
 
@@ -43,18 +43,18 @@ public class healthAndDamage : MonoBehaviour
 
         if (Tag == "Goblin")
         {
-            Health = 10000;
+            Health = 200;
            
         }
 
         if (Tag == "Orc")
         {                                           //sets health of enemies. slider max value is also set        
-            Health = 300;
+            Health = 600;
             
         }
         if (Tag == "Ogre")
         {          
-            Health = 500;
+            Health = 1000;
             
         }
 
