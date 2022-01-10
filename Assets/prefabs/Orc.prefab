@@ -33,7 +33,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0, y: -0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -252,7 +252,6 @@ GameObject:
   - component: {fileID: 3436803374917462218}
   - component: {fileID: 3436803374917462219}
   - component: {fileID: 3436803374917462216}
-  - component: {fileID: 3436803374917462217}
   - component: {fileID: 3086876788076495809}
   m_Layer: 0
   m_Name: Orc
@@ -270,7 +269,7 @@ Transform:
   m_GameObject: {fileID: 3436803374917462230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.6113, y: 0.5109, z: -0.51673424}
-  m_LocalScale: {x: 0.19248769, y: 0.18153524, z: 1}
+  m_LocalScale: {x: 0.11816819, y: 0.11144449, z: 0.6139}
   m_Children:
   - {fileID: 4793770844780622691}
   m_Father: {fileID: 0}
@@ -374,19 +373,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3436803374917462217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3436803374917462230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff50f4b731933a49aad1e5dd808d514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &3086876788076495809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +392,9 @@ MonoBehaviour:
   HitByFire: 0
   HitByIce: 0
   twoBoolsActive: 0
+  LightningFireDamage: 0
+  IceFireDamage: 0
+  AcidFireDamage: 0
 --- !u!1 &3499906956738184567
 GameObject:
   m_ObjectHideFlags: 0
