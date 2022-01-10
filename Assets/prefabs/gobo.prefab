@@ -177,7 +177,6 @@ GameObject:
   - component: {fileID: 389333084330829573}
   - component: {fileID: 389333084330829572}
   - component: {fileID: 389333084330829575}
-  - component: {fileID: 389333084330829574}
   - component: {fileID: 146525198}
   - component: {fileID: 796169870}
   m_Layer: 0
@@ -196,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 389333084330829593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.240002, y: 0.12999994, z: -0.51673424}
-  m_LocalScale: {x: 0.07714476, y: 0.06835048, z: 0.5566}
+  m_LocalScale: {x: 0.05308853, y: 0.047036592, z: 0.38303414}
   m_Children:
   - {fileID: 7516559704970820780}
   m_Father: {fileID: 0}
@@ -300,19 +299,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &389333084330829574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389333084330829593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff50f4b731933a49aad1e5dd808d514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &146525198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,13 +311,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9d16c84875af645a720cf8f33f5cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 2456
   slider: {fileID: 7191444428887223315}
   HitByLightning: 0
   HitByAcid: 0
   HitByFire: 0
   HitByIce: 0
   twoBoolsActive: 0
+  LightningFireDamage: 0
+  IceFireDamage: 0
+  AcidFireDamage: 0
 --- !u!114 &796169870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +344,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  speedModifier: 0
 --- !u!1 &422540624491815365
 GameObject:
   m_ObjectHideFlags: 0
