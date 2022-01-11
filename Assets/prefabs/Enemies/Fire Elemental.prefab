@@ -368,6 +368,8 @@ MonoBehaviour:
   IceFireDamage: 0
   AcidFireDamage: 0
   IceLightningDamage: 0
+  IceAcidDamage: 0
+  AOE: {fileID: 8412209578870402005, guid: 3c9e36c177ea79f44bf11ed9145a93a9, type: 3}
 --- !u!114 &5002827148688908409
 MonoBehaviour:
   m_ObjectHideFlags: 0

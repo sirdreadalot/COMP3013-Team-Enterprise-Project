@@ -9,6 +9,8 @@ public class healthAndDamage : MonoBehaviour
     // Start is
     // called before the first frame update
 
+
+
     [SerializeField] public float Health;
     public Slider slider;
     private String Tag; //script is shared between enemies so this lets parts of code know what type of enemies its on
@@ -29,7 +31,11 @@ public class healthAndDamage : MonoBehaviour
     [SerializeField] public bool IceFireDamage = false;              //which effect is active
     [SerializeField] public bool AcidFireDamage = false;
     [SerializeField] public bool IceLightningDamage = false;
+    [SerializeField] public bool IceAcidDamage = false;
+    [SerializeField] public bool LightningAcidDamage = false;
 
+    public GameObject AOE;
+    
 
 
 
@@ -92,13 +98,19 @@ public class healthAndDamage : MonoBehaviour
     void Update()
     {
 
-
-       
-
         slider.value = Health; //once damage is done the slider updates on the next frame
 
+     
 
         StartCoroutine(ElementMixing()); //checks to see if any elemental mixing statements are valid -> damage for them are done in the method
+
+
+        if (LightningAcidDamage == true)
+        {
+            Health -= 0.005f;                    //once turned on it will stay turned on and drain until gameObject is gone
+        }
+
+
 
         if (LightningFireDamage == true)
         {
@@ -585,6 +597,35 @@ public class healthAndDamage : MonoBehaviour
         }
 
 
+        //////////////////////////////////////////////////////////ice and Acid
+        
+        if (HitByIce == true && HitByAcid == true && twoBoolsActive == false)
+        {
+            twoBoolsActive = true;
+            IceAcidDamage = true;
+            IceAcidAOE();
+
+            GameObject puddle = (GameObject)Instantiate(AOE);
+            puddle.transform.position = gameObject.transform.position;
+
+            yield return new WaitForSeconds(3);
+
+            Destroy(puddle, 5);
+
+            twoBoolsActive = false;
+            IceAcidDamage = false;
+        }
+
+        ////////////////////////////////////////////////////////////////Acid and Lightning
+
+        if (HitByAcid == true && HitByAcid == true && twoBoolsActive == false)
+        {
+            twoBoolsActive = true;
+            LightningAcidDamage = true;
+            yield return new WaitForSeconds(2);
+            twoBoolsActive = false;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -628,5 +669,12 @@ public class healthAndDamage : MonoBehaviour
         }
     }
 
+
+    public void IceAcidAOE()
+    {
+
+        Health -= 50;
+
+    }
 
 }
