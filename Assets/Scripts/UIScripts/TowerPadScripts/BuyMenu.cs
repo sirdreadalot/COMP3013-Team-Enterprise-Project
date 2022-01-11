@@ -8,6 +8,7 @@ public class BuyMenu : MonoBehaviour
     public Text towerNameText;
     public GameObject TowerUI;
     UIButtons SelectedTower;
+    public GameObject archerTower;
 
 
     // Start is called before the first frame update
@@ -32,7 +33,7 @@ public class BuyMenu : MonoBehaviour
         {
             towerNameText = GameObject.Find("TowerNameTxt").GetComponent<Text>();
             towerNameText.text = "Purchase completed!";
-            
+            Instantiate(archerTower, new Vector3(-4, 0, 95), Quaternion.identity);
         }
 
 
