@@ -18,6 +18,7 @@ TagManager:
   - ArcherTower
   - AcidSplat
   - Frost
+  - FireElemental
   layers:
   - Default
   - TransparentFX

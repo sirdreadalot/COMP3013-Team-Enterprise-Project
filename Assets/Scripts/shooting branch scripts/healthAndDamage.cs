@@ -28,6 +28,7 @@ public class healthAndDamage : MonoBehaviour
     [SerializeField] public bool LightningFireDamage = false;           
     [SerializeField] public bool IceFireDamage = false;              //which effect is active
     [SerializeField] public bool AcidFireDamage = false;
+    [SerializeField] public bool IceLightningDamage = false;
 
 
 
@@ -54,8 +55,13 @@ public class healthAndDamage : MonoBehaviour
         }
         if (Tag == "Ogre")
         {          
-            Health = 1000;
+            Health = 500;
             
+        }
+        if (Tag == "FireElemental")
+        {
+            Health = 2000;
+
         }
 
         slider.maxValue = Health;
@@ -80,7 +86,7 @@ public class healthAndDamage : MonoBehaviour
 
         if (LightningFireDamage == true)
         {
-            Health -= 0.01f;          // lightning damage work differently in that it hurts over time. if the effect sets LightningFireDamage to true for x seconds update will add that to damage each frame
+            Health -= 0.01f;          // lightning damage works differently in that it hurts over time. if the effect sets LightningFireDamage to true for x seconds update will add that to damage each frame
         }
      
 
@@ -109,6 +115,11 @@ public class healthAndDamage : MonoBehaviour
 
 
             }
+            if (Tag == "FireElemental")
+            {
+                Health -= 0.01f;  //fire elementals are resistance to lightning
+
+            }
 
 
         }
@@ -132,6 +143,12 @@ public class healthAndDamage : MonoBehaviour
             {
 
                 passToManager.addCoins(30);
+
+            }
+            if (Tag == "FireElemental")
+            {
+
+                passToManager.addCoins(100);
 
             }
 
@@ -218,6 +235,11 @@ public class healthAndDamage : MonoBehaviour
 
 
             }
+            if (Tag == "FireElemental")
+            {
+
+                Health -= 10;
+            }
 
 
         }
@@ -278,6 +300,11 @@ public class healthAndDamage : MonoBehaviour
 
                 
 
+            }
+            if (Tag == "FireElemental")
+            {
+
+                Health -= 100f;
             }
 
             Follow FollowIce = GetComponent<Follow>();          //the purpose of ice towers are to slow enemies, this reduces the speed modifier in the Follow script
@@ -352,6 +379,11 @@ public class healthAndDamage : MonoBehaviour
 
 
             }
+            if (Tag == "FireElemental")
+            {
+
+                Health -= 10f;
+            }
 
 
         }
@@ -378,6 +410,7 @@ public class healthAndDamage : MonoBehaviour
 
     IEnumerator ElementMixing()
     {
+        ////////////////////////////////////////// fire and ice
 
         if (Tag == "Goblin" && HitByFire == true && HitByIce == true && twoBoolsActive == false)        //small enemies take this sort of extra damage
         {
@@ -389,7 +422,7 @@ public class healthAndDamage : MonoBehaviour
             IceFireDamage = false;
         }
 
-        /////////////////////////////////////////////
+        ///////////////////////////////////////////// fire and lightning
 
         if (HitByFire == true && HitByLightning == true && twoBoolsActive == false)  //fire and lightning mix hits all targets
         {
@@ -412,12 +445,12 @@ public class healthAndDamage : MonoBehaviour
             twoBoolsActive = false;         //allows for another effect to happen
         }
 
-        /////////////////////////////////////////////////
+        /////////////////////////////////////////////////fire and acid
 
         if (Tag == "Ogre" || Tag == "Orc")      //only medium enemies take this effect
         {
 
-            if (HitByFire == true && HitByIce == true && twoBoolsActive == false)
+            if (HitByFire == true && HitByAcid == true && twoBoolsActive == false)
             {
                 twoBoolsActive = true;
                 AcidFireDamage = true;
@@ -429,7 +462,24 @@ public class healthAndDamage : MonoBehaviour
 
         }
 
-        //////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////ice and lightning
+
+
+        if (HitByIce == true && HitByLightning == true && twoBoolsActive == false)
+        {
+
+            twoBoolsActive = true;
+            IceLightningDamage = true;
+
+
+            Follow Follow = GetComponent<Follow>();
+            Follow.speedModifier = 0.1f;
+
+            yield return new WaitForSeconds(5);
+
+            Follow.speedModifier = 0.5f;
+            IceLightningDamage = false;
+        }
 
 
     }
@@ -443,15 +493,19 @@ public class healthAndDamage : MonoBehaviour
 
             if (Tag == "Goblin")
             {
-                Health -= 50;
+                Health -= 30;
             }
             if (Tag == "Orc")
             {
-                Health -= 25;
+                Health -= 15;
             }
             if (Tag == "Ogre")
             {
-                Health -= 25;
+                Health -= 15;
+            }
+            if (Tag == "FireElemental")
+            {
+                Health -= 10f;
             }
 
         }

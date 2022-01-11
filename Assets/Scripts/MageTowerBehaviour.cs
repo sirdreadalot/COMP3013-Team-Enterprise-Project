@@ -57,7 +57,7 @@ public class MageTowerBehaviour : MonoBehaviour
             TargetTag = Target.tag;
             
 
-            if (Target.tag == "Goblin" || Target.tag == "Orc" || Target.tag == "Ogre")
+            if (Target.tag == "Goblin" || Target.tag == "Orc" || Target.tag == "Ogre" || Target.tag == "FireElemental")
             {
                 
                 Target.GetComponent<healthAndDamage>().LightningNest();
@@ -135,7 +135,7 @@ public class MageTowerBehaviour : MonoBehaviour
     {
 
 
-        if (collision.tag == "Goblin" || collision.tag == "Orc" || collision.tag == "Ogre")
+        if (collision.tag == "Goblin" || collision.tag == "Orc" || collision.tag == "Ogre" || collision.tag == "FireElemental")
         {
 
 
@@ -151,7 +151,7 @@ public class MageTowerBehaviour : MonoBehaviour
     {
 
 
-        if (collision.tag == "Goblin" || collision.tag == "Orc" || collision.tag == "Ogre")
+        if (collision.tag == "Goblin" || collision.tag == "Orc" || collision.tag == "Ogre"|| collision.tag == "FireElemental")
         {
 
 
