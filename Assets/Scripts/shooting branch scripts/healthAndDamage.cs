@@ -63,6 +63,22 @@ public class healthAndDamage : MonoBehaviour
             Health = 2000;
 
         }
+        if (Tag == "IceElemental")
+        {
+            Health = 2000;
+
+        }
+        if (Tag == "AcidElemental")
+        {
+            Health = 2000;
+
+        }
+        if (Tag == "LightningElemental")
+        {
+            Health = 2000;
+
+        }
+
 
         slider.maxValue = Health;
 
@@ -114,13 +130,27 @@ public class healthAndDamage : MonoBehaviour
                 Health -= 0.05f;
 
 
-            }
+            }           
             if (Tag == "FireElemental")
             {
-                Health -= 0.01f;  //fire elementals are resistance to lightning
+                Health -= 0.01f;  
 
             }
+            if (Tag == "IceElemental")                  //some elementals are resistant/ weak to lightning
+            {
+                Health -= 0.01f;
 
+            }
+            if (Tag == "AcidElemental")
+            {
+                Health -= 0.015f;
+
+            }
+            if (Tag == "LightningElemental")
+            {
+                Health -= 0.01f;
+
+            }
 
         }
 
@@ -146,6 +176,24 @@ public class healthAndDamage : MonoBehaviour
 
             }
             if (Tag == "FireElemental")
+            {
+
+                passToManager.addCoins(100);
+
+            }
+            if (Tag == "IceElemental")
+            {
+
+                passToManager.addCoins(100);
+
+            }
+            if (Tag == "AcidElemental")
+            {
+
+                passToManager.addCoins(100);
+
+            }
+            if (Tag == "LightningElemental")
             {
 
                 passToManager.addCoins(100);
@@ -240,6 +288,22 @@ public class healthAndDamage : MonoBehaviour
 
                 Health -= 10;
             }
+            if (Tag == "IceElemental")                      //some elementals are resistant/ weak to fire
+            {
+
+                Health -= 100;
+            }
+            if (Tag == "AcidElemental")
+            {
+
+                Health -= 100;
+            }
+            if (Tag == "LightningElemental")
+            {
+
+                Health -= 25;
+            }
+
 
 
         }
@@ -306,13 +370,34 @@ public class healthAndDamage : MonoBehaviour
 
                 Health -= 100f;
             }
+            if (Tag == "AcidElemental")                  //some elementals are resistant/ weak to ice
+            {
+
+                Health -= 100f;
+            }
+            if (Tag == "LightningElemental")
+            {
+
+                Health -= 100;
+            }
+
+
+
 
             Follow FollowIce = GetComponent<Follow>();          //the purpose of ice towers are to slow enemies, this reduces the speed modifier in the Follow script
             FollowIce.speedModifier = 0.2f;
 
 
+            if (Tag == "IceElemental")
+            {
+
+                Health -= 10f;           //ice elementals are resistant to ice, they dont get slowed
+            }
+ 
+
+
         }
-        
+
 
 
 
@@ -384,6 +469,23 @@ public class healthAndDamage : MonoBehaviour
 
                 Health -= 10f;
             }
+
+            if (Tag == "IceElemental")
+            {
+
+                Health -= 100f;      
+            }
+            if (Tag == "AcidElemental")
+            {
+
+                Health -= 10f;
+            }
+            if (Tag == "LightningElemental")
+            {
+
+                Health -= 25;
+            }
+
 
 
         }
@@ -465,7 +567,7 @@ public class healthAndDamage : MonoBehaviour
         //////////////////////////////////////////////////////////ice and lightning
 
 
-        if (HitByIce == true && HitByLightning == true && twoBoolsActive == false)
+        if (HitByIce == true && HitByLightning == true && twoBoolsActive == false)  //ice lightning hits all targets
         {
 
             twoBoolsActive = true;
@@ -479,6 +581,7 @@ public class healthAndDamage : MonoBehaviour
 
             Follow.speedModifier = 0.5f;
             IceLightningDamage = false;
+            twoBoolsActive = false;
         }
 
 
@@ -501,12 +604,26 @@ public class healthAndDamage : MonoBehaviour
             }
             if (Tag == "Ogre")
             {
-                Health -= 15;
+                Health -= 15;                       //units have different resistances to standard arrow damage
             }
             if (Tag == "FireElemental")
             {
                 Health -= 10f;
             }
+            if (Tag == "IceElemental")
+            {
+                Health -= 10f;
+            }
+            if (Tag == "AcidElemental")
+            {
+                Health -= 10f;
+            }
+            if (Tag == "LightningElemental")
+            {
+
+                Health -= 10;
+            }
+
 
         }
     }

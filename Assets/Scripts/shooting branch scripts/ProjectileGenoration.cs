@@ -172,7 +172,7 @@ public class ProjectileGenoration : MonoBehaviour
     {
 
 
-        if (collision.tag == "Goblin" || collision.tag == "Orc" || collision.tag == "Ogre"|| collision.tag == "FireElemental")
+        if (collision.tag == "Goblin" || collision.tag == "Orc" || collision.tag == "Ogre"|| collision.tag == "FireElemental" || collision.tag == "IceElemental" || collision.tag == "AcidElemental" || collision.tag == "LightningElemental")
         {
 
 
@@ -188,7 +188,7 @@ public class ProjectileGenoration : MonoBehaviour
     {
 
 
-        if (collision.tag == "Goblin" || collision.tag == "Orc" || collision.tag == "Ogre"|| collision.tag == "FireElemental")
+        if (collision.tag == "Goblin" || collision.tag == "Orc" || collision.tag == "Ogre"|| collision.tag == "FireElemental"|| collision.tag == "IceElemental" || collision.tag == "AcidElemental" || collision.tag == "LightningElemental")
         {
 
 

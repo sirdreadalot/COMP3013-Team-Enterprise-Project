@@ -19,6 +19,9 @@ TagManager:
   - AcidSplat
   - Frost
   - FireElemental
+  - IceElemental
+  - AcidElemental
+  - LightningElemental
   layers:
   - Default
   - TransparentFX
