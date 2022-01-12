@@ -39,6 +39,7 @@ public class Pad : MonoBehaviour
     {
 
         pass.selectedpad(gameObject);
+        GetComponent<Image>().enabled = true;
 
     }
 }
