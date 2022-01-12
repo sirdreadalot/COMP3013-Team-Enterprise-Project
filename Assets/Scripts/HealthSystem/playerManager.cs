@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class playerManager : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class playerManager : MonoBehaviour
 
 
     // Various public variables.
-    public Slider healthbar;
+    public HealthBar healthbar;
     public int playerMaxHealth;
     public int playerCurrentHealth;
     public int playerCurrency = 0;
@@ -20,8 +19,7 @@ public class playerManager : MonoBehaviour
     {
         playerMaxHealth = 100;
         playerCurrentHealth = playerMaxHealth;
-        healthbar.maxValue = playerMaxHealth;
-        healthbar.value = playerMaxHealth;
+        healthbar.SetMaxHealth(playerMaxHealth);
     }
 
     void Update()
@@ -51,6 +49,6 @@ public class playerManager : MonoBehaviour
     public void damagePlayer(int damage)
     {
         playerCurrentHealth = playerCurrentHealth - damage;
-        healthbar.value = playerCurrentHealth;
+        healthbar.SetHealth(playerCurrentHealth);
     }
 }
