@@ -18,7 +18,7 @@ public class Pad : MonoBehaviour
 
         pass = FindObjectOfType<PadManager>();
 
-        GetComponent<Image>().enabled = false;
+        //GetComponent<Image>().enabled = false;
     }
 
     // Update is called once per frame
@@ -29,17 +29,17 @@ public class Pad : MonoBehaviour
 
     void OnMouseEnter()
     {
-        GetComponent<Image>().enabled = true;
+        //GetComponent<Image>().enabled = true;
     }
     void OnMouseExit()
     {
-        GetComponent<Image>().enabled = false;
+        //GetComponent<Image>().enabled = false;
     }
     void OnMouseDown()
     {
 
         pass.selectedpad(gameObject);
-        GetComponent<Image>().enabled = true;
+        //GetComponent<Image>().enabled = true;
 
     }
 }
