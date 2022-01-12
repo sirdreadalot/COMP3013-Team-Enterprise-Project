@@ -8462,5 +8462,13 @@ PrefabInstance:
       propertyPath: pauseLength
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9163969548871484987, guid: e1dc9d07e5e97cd46959d15bdf84d26e, type: 3}
+      propertyPath: spawnPoint.x
+      value: -31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163969548871484987, guid: e1dc9d07e5e97cd46959d15bdf84d26e, type: 3}
+      propertyPath: spawnPoint.y
+      value: -0.35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1dc9d07e5e97cd46959d15bdf84d26e, type: 3}
