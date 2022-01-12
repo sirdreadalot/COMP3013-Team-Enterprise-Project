@@ -59,15 +59,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 3530674389
-    locked: 0
-  - name: Enemies
-    uniqueID: 1473057263
-    locked: 0
-  - name: Towers
-    uniqueID: 2690192163
-    locked: 0
-  - name: UI
-    uniqueID: 4200554343
+  - name: FX
+    uniqueID: 391943059
     locked: 0
