@@ -7613,7 +7613,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 429688021
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1980612031
@@ -8453,6 +8453,14 @@ PrefabInstance:
     - target: {fileID: 9163969546856223165, guid: e1dc9d07e5e97cd46959d15bdf84d26e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163969546856223166, guid: e1dc9d07e5e97cd46959d15bdf84d26e, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163969546856223166, guid: e1dc9d07e5e97cd46959d15bdf84d26e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 429688021
       objectReference: {fileID: 0}
     - target: {fileID: 9163969546856223167, guid: e1dc9d07e5e97cd46959d15bdf84d26e, type: 3}
       propertyPath: m_Name
