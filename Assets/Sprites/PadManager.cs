@@ -20,6 +20,9 @@ public class PadManager : MonoBehaviour
     public GameObject AcidTower;
     public GameObject ArcherTower;
 
+
+    
+
     void Start()
     {
 
@@ -47,17 +50,56 @@ public class PadManager : MonoBehaviour
 
     public void BuildTower()
     {
+
         
 
-        padlocation = SelectedPad.transform.position;
-
-        if (TowerToBuild == "IceTower")
+        if (SelectedPad.GetComponent<Pad>().builtUpon == false)
         {
 
-            GameObject newtower = (GameObject)Instantiate(IceTower);
-            newtower.transform.position = padlocation;
-            
+            padlocation = SelectedPad.transform.position;
+
+            if (TowerToBuild == "IceTower")
+            {
+
+                GameObject newtower = (GameObject)Instantiate(IceTower);
+                newtower.transform.position = padlocation;
+
+            }
+            if (TowerToBuild == "FireTower")
+            {
+
+                GameObject newtower = (GameObject)Instantiate(FireTower);
+                newtower.transform.position = padlocation;
+
+            }
+            if (TowerToBuild == "MageTower")
+            {
+
+                GameObject newtower = (GameObject)Instantiate(MageTower);
+                newtower.transform.position = padlocation;
+
+            }
+            if (TowerToBuild == "AcidTower")
+            {
+
+                GameObject newtower = (GameObject)Instantiate(AcidTower);
+                newtower.transform.position = padlocation;
+
+            }
+            if (TowerToBuild == "ArcherTower")
+            {
+
+                GameObject newtower = (GameObject)Instantiate(ArcherTower);
+                newtower.transform.position = padlocation;
+
+            }
+
+            SelectedPad.GetComponent<Pad>().builtUpon = true;
+
         }
+
+
+
 
 
 
