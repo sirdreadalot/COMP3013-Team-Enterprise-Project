@@ -9,7 +9,7 @@ public class PadManager : MonoBehaviour
 
     [SerializeField] private GameObject SelectedPad;
 
-    private Vector2 padlocation;
+    private Vector3 padlocation;
 
     [SerializeField] public string TowerToBuild;
 
@@ -56,6 +56,8 @@ public class PadManager : MonoBehaviour
         if (SelectedPad.GetComponent<Pad>().builtUpon == false)
         {
 
+
+
             padlocation = SelectedPad.transform.position;
 
             if (TowerToBuild == "IceTower")
@@ -68,7 +70,7 @@ public class PadManager : MonoBehaviour
             if (TowerToBuild == "FireTower")
             {
 
-                GameObject newtower = (GameObject)Instantiate(FireTower);
+                GameObject newtower = (GameObject)Instantiate(FireTower, padlocation, Quaternion.identity);
                 newtower.transform.position = padlocation;
 
             }

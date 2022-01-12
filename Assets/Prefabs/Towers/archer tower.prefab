@@ -169,7 +169,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   closestEnemy: 0
   newdDist: 0
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 5617972966828642426, guid: 8cd0d1ece620ca24da60650779c04943, type: 3}
   firepoint: {fileID: 6130330757618503884}
   Targetposition: {fileID: 0}
   maxAmmo: 1
