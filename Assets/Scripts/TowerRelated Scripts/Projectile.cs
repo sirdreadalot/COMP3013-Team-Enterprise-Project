@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
 
     private Transform target;
 
-    public float speed = 10;
+    public float speed = 10f;
 
 
     public void setTarget(Transform TARGET)
@@ -33,9 +33,14 @@ public class Projectile : MonoBehaviour
         if (target == null)
         {
             Destroy(gameObject);
+            
+        
             return;
         }
-    
+
+
+
+
         Vector3 dir = target.position - transform.position;
 
         float disThisFrame = speed * Time.deltaTime;
@@ -53,11 +58,11 @@ public class Projectile : MonoBehaviour
         transform.Translate(dir.normalized * disThisFrame, Space.World);
 
 
-        //Debug.Log(target);
+        Debug.Log(target);
 
-       
-     
-        
+
+
+
     }
 
     void hitTarget()
