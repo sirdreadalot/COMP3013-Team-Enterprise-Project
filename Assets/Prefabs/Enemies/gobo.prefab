@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9d16c84875af645a720cf8f33f5cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 2456
+  Health: 100
   slider: {fileID: 7191444428887223315}
   HitByLightning: 0
   HitByAcid: 0
