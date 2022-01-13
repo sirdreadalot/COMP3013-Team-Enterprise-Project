@@ -39,7 +39,14 @@ public class Projectile : MonoBehaviour
         }
 
 
+        //transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
 
+        //if (this.transform.position == target.transform.position)
+        //{
+        //    hitTarget();
+        //    Destroy(gameObject);
+        //    return;
+        //}
 
         Vector3 dir = target.position - transform.position;
 
