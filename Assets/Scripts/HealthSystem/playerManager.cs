@@ -18,6 +18,7 @@ public class playerManager : MonoBehaviour
 
     void Start()
     {
+        playerCurrency = 10;
         playerMaxHealth = 100;
         playerCurrentHealth = playerMaxHealth;
         healthbar.maxValue = playerMaxHealth;

@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildingUI : MonoBehaviour
 {
     // Start is called before the first frame update
 
     private PadManager pass;
-
-
-
+    private playerManager currency;
+    public Text gold;
 
     void Start()
     {
-
         pass = FindObjectOfType<PadManager>();
-
+        currency = FindObjectOfType<playerManager>();
+        gold = GameObject.FindGameObjectWithTag("Gold").GetComponent<Text>();
+        gold.text = "Gold: " + currency.playerCurrency.ToString();
     }
 
     // Update is called once per frame
@@ -26,8 +27,14 @@ public class BuildingUI : MonoBehaviour
 
     public void BuildIceTower()
     {
-        pass.TowerToBuild = "IceTower";
-        pass.BuildTower();
+        if (currency.playerCurrency == 5 || currency.playerCurrency < 5) {
+            
+            currency.playerCurrency -= 5;
+            gold.text = "Gold: " + currency.playerCurrency.ToString();
+
+            pass.TowerToBuild = "IceTower";
+            pass.BuildTower();
+        }
     }
 
     public void BuildFireTower()

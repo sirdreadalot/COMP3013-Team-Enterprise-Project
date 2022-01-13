@@ -22,6 +22,7 @@ TagManager:
   - IceElemental
   - AcidElemental
   - LightningElemental
+  - Gold
   layers:
   - Default
   - TransparentFX
