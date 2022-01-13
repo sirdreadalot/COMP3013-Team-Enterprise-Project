@@ -71,7 +71,7 @@ public class PadManager : MonoBehaviour
             {
 
                 GameObject newtower = (GameObject)Instantiate(FireTower, padlocation, Quaternion.identity);
-                newtower.transform.position = padlocation;
+                //newtower.transform.position = padlocation;
 
             }
             if (TowerToBuild == "MageTower")

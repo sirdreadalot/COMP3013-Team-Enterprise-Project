@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private String Tag;
 
-    private Transform target;
+    [SerializeField]  private Transform target;
 
     public float speed = 10f;
 
