@@ -9,6 +9,7 @@ public class playerManager : MonoBehaviour
     // Various canvas's that need to be hidden at first.
     public GameObject pauseMenuCanvas;
 
+    public BuildingUI GoldUpdate;
 
     // Various public variables.
     public Slider healthbar;
@@ -23,6 +24,7 @@ public class playerManager : MonoBehaviour
         playerCurrentHealth = playerMaxHealth;
         healthbar.maxValue = playerMaxHealth;
         healthbar.value = playerMaxHealth;
+        
     }
 
     void Update()
@@ -41,7 +43,7 @@ public class playerManager : MonoBehaviour
     {
 
         playerCurrency += coinsToAdd;
-
+        GoldUpdate.gold.text = playerCurrency.ToString();
     }
 
     public void removeCoins(int coinsToRemove)

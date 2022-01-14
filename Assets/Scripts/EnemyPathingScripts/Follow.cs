@@ -11,6 +11,9 @@ public class Follow : MonoBehaviour
 
     private float tParam;
 
+    public GameObject Eroutes;
+    private int NoEroutes;
+
     private Vector2 objectPosition;
 
     public float speedModifier;
@@ -20,6 +23,15 @@ public class Follow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Eroutes = GameObject.Find("EnemyRoutes");
+        NoEroutes = Eroutes.transform.childCount;
+
+        for (int i = 0; i < NoEroutes; i++)
+        {
+            routes[i] = Eroutes.transform.GetChild(i);
+
+        }
+
         routeToGo = 0;
         tParam = 0f;
         speedModifier = 0.5f;

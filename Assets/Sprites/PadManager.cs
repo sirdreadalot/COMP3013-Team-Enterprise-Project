@@ -59,45 +59,51 @@ public class PadManager : MonoBehaviour
 
 
             padlocation = SelectedPad.transform.position;
+            Vector3 spawnlocation = new Vector3(padlocation.x, padlocation.y, 0);
+
 
             if (TowerToBuild == "IceTower")
             {
 
-                GameObject newtower = (GameObject)Instantiate(IceTower);
-                newtower.transform.position = padlocation;
+                GameObject tower = (GameObject)Instantiate(IceTower, spawnlocation, Quaternion.identity);
+                SelectedPad.GetComponent<Pad>().Building = tower;
 
             }
             if (TowerToBuild == "FireTower")
             {
 
-                Instantiate(FireTower, padlocation, Quaternion.identity);
-               
+                GameObject tower = Instantiate(FireTower, spawnlocation, Quaternion.identity);
+                SelectedPad.GetComponent<Pad>().Building = tower;
+
 
             }
             if (TowerToBuild == "MageTower")
             {
 
-                GameObject newtower = (GameObject)Instantiate(MageTower);
-                
+                GameObject tower = Instantiate(MageTower, spawnlocation, Quaternion.identity);
+                SelectedPad.GetComponent<Pad>().Building = tower;
+
 
             }
             if (TowerToBuild == "AcidTower")
             {
 
-                GameObject newtower = (GameObject)Instantiate(AcidTower);
-                newtower.transform.position = padlocation;
-                
+                GameObject tower = Instantiate(AcidTower, spawnlocation, Quaternion.identity);
+                SelectedPad.GetComponent<Pad>().Building = tower;
+
 
             }
             if (TowerToBuild == "ArcherTower")
             {
 
-                GameObject newtower = (GameObject)Instantiate(ArcherTower);
-                newtower.transform.position = padlocation;
+                GameObject tower = Instantiate(ArcherTower, spawnlocation, Quaternion.identity);
+                SelectedPad.GetComponent<Pad>().Building = tower;
 
             }
 
+
             SelectedPad.GetComponent<Pad>().builtUpon = true;
+          
 
         }
 

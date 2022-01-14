@@ -9,7 +9,7 @@ public class Pad : MonoBehaviour
 
 
     private PadManager pass;
-
+    public GameObject Building;
 
     public bool builtUpon = false;
 

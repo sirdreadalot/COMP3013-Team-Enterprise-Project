@@ -11,25 +11,27 @@ public class BuildingUI : MonoBehaviour
     private playerManager currency;
     public Text gold;
 
+    public int goldcount;
+
     void Start()
     {
         pass = FindObjectOfType<PadManager>();
         currency = FindObjectOfType<playerManager>();
-        gold = GameObject.FindGameObjectWithTag("Gold").GetComponent<Text>();
         gold.text = "Gold: " + currency.playerCurrency.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void BuildIceTower()
     {
-        if (currency.playerCurrency == 5 || currency.playerCurrency < 5) {
+        if (currency.playerCurrency >= 5) {
             
             currency.playerCurrency -= 5;
+
             gold.text = "Gold: " + currency.playerCurrency.ToString();
 
             pass.TowerToBuild = "IceTower";
