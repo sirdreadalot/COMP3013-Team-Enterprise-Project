@@ -11,6 +11,7 @@ public class playerManager : MonoBehaviour
 
     public BuildingUI GoldUpdate;
 
+
     // Various public variables.
     public Slider healthbar;
     public int playerMaxHealth;
@@ -19,12 +20,14 @@ public class playerManager : MonoBehaviour
 
     void Start()
     {
-        playerCurrency = 10;
+        playerCurrency = 50;
         playerMaxHealth = 100;
         playerCurrentHealth = playerMaxHealth;
         healthbar.maxValue = playerMaxHealth;
         healthbar.value = playerMaxHealth;
-        
+        GoldUpdate.UpdateGold();
+
+
     }
 
     void Update()
@@ -43,7 +46,7 @@ public class playerManager : MonoBehaviour
     {
 
         playerCurrency += coinsToAdd;
-        GoldUpdate.gold.text = playerCurrency.ToString();
+       
     }
 
     public void removeCoins(int coinsToRemove)

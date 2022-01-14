@@ -50,38 +50,38 @@ public class healthAndDamage : MonoBehaviour
 
         if (Tag == "Goblin")
         {
-            Health = 200;
+            Health = 100;
            
         }
 
         if (Tag == "Orc")
         {                                           //sets health of enemies. slider max value is also set        
-            Health = 600;
+            Health = 300;
             
         }
         if (Tag == "Ogre")
         {          
-            Health = 500;
+            Health = 400;
             
         }
         if (Tag == "FireElemental")
         {
-            Health = 2000;
+            Health = 1200;
 
         }
         if (Tag == "IceElemental")
         {
-            Health = 2000;
+            Health = 1000;
 
         }
         if (Tag == "AcidElemental")
         {
-            Health = 2000;
+            Health = 1000;
 
         }
         if (Tag == "LightningElemental")
         {
-            Health = 2000;
+            Health = 1000;
 
         }
 
@@ -172,43 +172,42 @@ public class healthAndDamage : MonoBehaviour
             if (Tag == "Goblin")
             {
 
-                passToManager.addCoins(10);
-
+                passToManager.playerCurrency += 5;
             }
             if (Tag == "Orc")
             {
 
-                passToManager.addCoins(20);             //adds coins for each enemy death. the bigger the enemy (in descending order here) the more dollar gotten
+                passToManager.playerCurrency += 10;             //adds coins for each enemy death. the bigger the enemy (in descending order here) the more dollar gotten
 
             }
             if (Tag == "Ogre")
             {
 
-                passToManager.addCoins(30);
+                passToManager.playerCurrency += 15;
 
             }
             if (Tag == "FireElemental")
             {
 
-                passToManager.addCoins(100);
+                passToManager.playerCurrency += 20;
 
             }
             if (Tag == "IceElemental")
             {
 
-                passToManager.addCoins(100);
+                passToManager.playerCurrency += 20;
 
             }
             if (Tag == "AcidElemental")
             {
 
-                passToManager.addCoins(100);
+                passToManager.playerCurrency += 20;
 
             }
             if (Tag == "LightningElemental")
             {
 
-                passToManager.addCoins(100);
+                passToManager.playerCurrency += 20;
 
             }
 

@@ -17,12 +17,21 @@ public class BuildingUI : MonoBehaviour
     {
         pass = FindObjectOfType<PadManager>();
         currency = FindObjectOfType<playerManager>();
-        gold.text = "Gold: " + currency.playerCurrency.ToString();
+        UpdateGold();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    public void UpdateGold()
+    {
+
+       
+        gold.text = currency.playerCurrency.ToString();
+
 
     }
 
@@ -32,8 +41,7 @@ public class BuildingUI : MonoBehaviour
             
             currency.playerCurrency -= 5;
 
-            gold.text = "Gold: " + currency.playerCurrency.ToString();
-
+            UpdateGold();
             pass.TowerToBuild = "IceTower";
             pass.BuildTower();
         }
@@ -41,28 +49,56 @@ public class BuildingUI : MonoBehaviour
 
     public void BuildFireTower()
     {
-        pass.TowerToBuild = "FireTower";
-        pass.BuildTower();
+        if (currency.playerCurrency >= 10)
+        {
+
+            currency.playerCurrency -= 10;
+
+            UpdateGold();
+            pass.TowerToBuild = "FireTower";
+            pass.BuildTower();
+        }
     }
 
 
     public void BuildMageTower()
     {
-        pass.TowerToBuild = "MageTower";
-        pass.BuildTower();
+        if (currency.playerCurrency >= 10)
+        {
+
+            currency.playerCurrency -= 10;
+
+            UpdateGold();
+            pass.TowerToBuild = "MageTower";
+            pass.BuildTower();
+        }
     }
 
 
     public void BuildAcidTower()
     {
-        pass.TowerToBuild = "AcidTower";
-        pass.BuildTower();
+        if (currency.playerCurrency >= 5)
+        {
+
+            currency.playerCurrency -= 5;
+
+            UpdateGold();
+            pass.TowerToBuild = "AcidTower";
+            pass.BuildTower();
+        }
     }
 
 
     public void BuildArcherTower()
     {
-        pass.TowerToBuild = "ArcherTower";
-        pass.BuildTower(); 
+        if (currency.playerCurrency >= 5)
+        {
+
+            currency.playerCurrency -= 5;
+
+            UpdateGold();
+            pass.TowerToBuild = "ArcherTower";
+            pass.BuildTower();
+        }
     }
 }
