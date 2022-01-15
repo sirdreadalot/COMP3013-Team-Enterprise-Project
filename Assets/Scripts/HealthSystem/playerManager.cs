@@ -40,7 +40,8 @@ public class playerManager : MonoBehaviour
             Time.timeScale = 0;
             pauseMenuCanvas.SetActive(true);
         }
-              
+        GoldUpdate.UpdateGold();
+        GoldUpdate.UpdateScore();
 
     }
 

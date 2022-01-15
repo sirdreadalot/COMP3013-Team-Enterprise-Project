@@ -62,8 +62,11 @@ public class Projectile : MonoBehaviour
 
         }
 
+        transform.up = target.transform.position - transform.position;
+
         transform.Translate(dir.normalized * disThisFrame, Space.World);
 
+        
 
         Debug.Log(target);
 
