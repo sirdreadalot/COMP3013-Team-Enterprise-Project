@@ -35,7 +35,11 @@ public class healthAndDamage : MonoBehaviour
     [SerializeField] public bool LightningAcidDamage = false;
 
     public GameObject AOE;
-    
+
+    public ParticleSystem FireParticle;
+    public ParticleSystem IceParticle;
+    public ParticleSystem LightningParticle;
+    public ParticleSystem AcidParticle;
 
 
 
@@ -43,7 +47,13 @@ public class healthAndDamage : MonoBehaviour
 
     void Start()
     {
- 
+
+
+        FireParticle.Stop();
+        IceParticle.Stop();
+        LightningParticle.Stop();
+        AcidParticle.Stop();
+
         passToManager = FindObjectOfType<playerManager>();
       
         Tag = gameObject.tag;  //gets tag of gameObject
@@ -173,41 +183,47 @@ public class healthAndDamage : MonoBehaviour
             {
 
                 passToManager.playerCurrency += 5;
+                passToManager.playerScore += 25;
             }
             if (Tag == "Orc")
             {
 
                 passToManager.playerCurrency += 10;             //adds coins for each enemy death. the bigger the enemy (in descending order here) the more dollar gotten
-
+                passToManager.playerScore += 50;
             }
             if (Tag == "Ogre")
             {
 
                 passToManager.playerCurrency += 15;
+                passToManager.playerScore += 100;
 
             }
             if (Tag == "FireElemental")
             {
 
                 passToManager.playerCurrency += 20;
+                passToManager.playerScore += 150;
 
             }
             if (Tag == "IceElemental")
             {
 
                 passToManager.playerCurrency += 20;
+                passToManager.playerScore += 150;
 
             }
             if (Tag == "AcidElemental")
             {
 
                 passToManager.playerCurrency += 20;
+                passToManager.playerScore += 150;
 
             }
             if (Tag == "LightningElemental")
             {
 
                 passToManager.playerCurrency += 20;
+                passToManager.playerScore += 150;
 
             }
 
@@ -248,11 +264,14 @@ public class healthAndDamage : MonoBehaviour
     {
         HitByLightning = true;
 
+        LightningParticle.Play();
+
 
         yield return new WaitForSeconds(0.5f);      //the wait for seconds is so other elements have a chance to also get recognised so elemental mixing statements can get triggered
 
 
-        HitByLightning = false; 
+        HitByLightning = false;
+        LightningParticle.Stop();
 
     }
    
@@ -325,14 +344,14 @@ public class healthAndDamage : MonoBehaviour
     IEnumerator Fire()
     {
         HitByFire = true;
-
+        FireParticle.Play();
 
         yield return new WaitForSeconds(0.5f);      //the element of fire is recognised on this target for the waitforseconds time count.
                                                                 
 
 
         HitByFire = false;
-
+        FireParticle.Stop();
     }
 
 
@@ -420,7 +439,7 @@ public class healthAndDamage : MonoBehaviour
     {
         HitByIce = true;
 
-
+        IceParticle.Play();
        
 
         yield return new WaitForSeconds(1);
@@ -429,6 +448,7 @@ public class healthAndDamage : MonoBehaviour
         FollowIce.speedModifier = 0.5f;
 
         HitByIce = false;
+        IceParticle.Stop();
 
     }
 
@@ -507,13 +527,13 @@ public class healthAndDamage : MonoBehaviour
     IEnumerator Acid()
     {
         HitByAcid  = true;
-
+        AcidParticle.Play();
 
         yield return new WaitForSeconds(0.5f);
 
 
         HitByAcid = false;
-
+        AcidParticle.Stop();
     }
 
 

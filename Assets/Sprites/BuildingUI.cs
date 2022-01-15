@@ -8,16 +8,18 @@ public class BuildingUI : MonoBehaviour
     // Start is called before the first frame update
 
     private PadManager pass;
-    private playerManager currency;
+    private playerManager playermanager;
     public Text gold;
+    public Text Score;
 
     public int goldcount;
 
     void Start()
     {
         pass = FindObjectOfType<PadManager>();
-        currency = FindObjectOfType<playerManager>();
+        playermanager = FindObjectOfType<playerManager>();
         UpdateGold();
+        UpdateScore();
     }
 
     // Update is called once per frame
@@ -30,16 +32,24 @@ public class BuildingUI : MonoBehaviour
     {
 
        
-        gold.text = currency.playerCurrency.ToString();
+        gold.text = playermanager.playerCurrency.ToString();
 
+
+    }
+    public void UpdateScore()
+    {
+
+
+        Score.text = playermanager.playerScore.ToString();
+        
 
     }
 
     public void BuildIceTower()
     {
-        if (currency.playerCurrency >= 5) {
-            
-            currency.playerCurrency -= 5;
+        if (playermanager.playerCurrency >= 5) {
+
+            playermanager.playerCurrency -= 5;
 
             UpdateGold();
             pass.TowerToBuild = "IceTower";
@@ -49,10 +59,10 @@ public class BuildingUI : MonoBehaviour
 
     public void BuildFireTower()
     {
-        if (currency.playerCurrency >= 10)
+        if (playermanager.playerCurrency >= 10)
         {
 
-            currency.playerCurrency -= 10;
+            playermanager.playerCurrency -= 10;
 
             UpdateGold();
             pass.TowerToBuild = "FireTower";
@@ -63,10 +73,10 @@ public class BuildingUI : MonoBehaviour
 
     public void BuildMageTower()
     {
-        if (currency.playerCurrency >= 10)
+        if (playermanager.playerCurrency >= 10)
         {
 
-            currency.playerCurrency -= 10;
+            playermanager.playerCurrency -= 10;
 
             UpdateGold();
             pass.TowerToBuild = "MageTower";
@@ -77,10 +87,10 @@ public class BuildingUI : MonoBehaviour
 
     public void BuildAcidTower()
     {
-        if (currency.playerCurrency >= 5)
+        if (playermanager.playerCurrency >= 5)
         {
 
-            currency.playerCurrency -= 5;
+            playermanager.playerCurrency -= 5;
 
             UpdateGold();
             pass.TowerToBuild = "AcidTower";
@@ -91,10 +101,10 @@ public class BuildingUI : MonoBehaviour
 
     public void BuildArcherTower()
     {
-        if (currency.playerCurrency >= 5)
+        if (playermanager.playerCurrency >= 5)
         {
 
-            currency.playerCurrency -= 5;
+            playermanager.playerCurrency -= 5;
 
             UpdateGold();
             pass.TowerToBuild = "ArcherTower";

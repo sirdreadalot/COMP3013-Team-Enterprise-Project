@@ -16,7 +16,8 @@ public class playerManager : MonoBehaviour
     public Slider healthbar;
     public int playerMaxHealth;
     public int playerCurrentHealth;
-    public int playerCurrency = 0;
+    public int playerCurrency;
+    public int playerScore = 0;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class playerManager : MonoBehaviour
         healthbar.maxValue = playerMaxHealth;
         healthbar.value = playerMaxHealth;
         GoldUpdate.UpdateGold();
+        GoldUpdate.UpdateScore();
 
 
     }
@@ -38,7 +40,8 @@ public class playerManager : MonoBehaviour
             Time.timeScale = 0;
             pauseMenuCanvas.SetActive(true);
         }
-    
+              
+
     }
 
  
@@ -48,7 +51,8 @@ public class playerManager : MonoBehaviour
         playerCurrency += coinsToAdd;
        
     }
-
+ 
+    
     public void removeCoins(int coinsToRemove)
     {
         playerCurrency -= coinsToRemove;
