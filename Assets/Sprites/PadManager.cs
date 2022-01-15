@@ -19,18 +19,21 @@ public class PadManager : MonoBehaviour
     public GameObject MageTower;
     public GameObject AcidTower;
     public GameObject ArcherTower;
+    private playerManager playermanager;
 
 
-    
 
     void Start()
     {
 
+        playermanager = FindObjectOfType<playerManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+ 
 
     }
 
@@ -51,63 +54,68 @@ public class PadManager : MonoBehaviour
     public void BuildTower()
     {
 
+       
+
+
+            if (SelectedPad.GetComponent<Pad>().builtUpon == false)
+            {
+
+
+
+                padlocation = SelectedPad.transform.position;
+                Vector3 spawnlocation = new Vector3(padlocation.x, padlocation.y, 0);
+
+
+                if (TowerToBuild == "IceTower")
+                {
+
+                    GameObject tower = (GameObject)Instantiate(IceTower, spawnlocation, Quaternion.identity);
+                    SelectedPad.GetComponent<Pad>().Building = tower;
+                    playermanager.playerCurrency -= 5;
+
+            }
+                if (TowerToBuild == "FireTower")
+                {
+
+                    GameObject tower = Instantiate(FireTower, spawnlocation, Quaternion.identity);
+                    SelectedPad.GetComponent<Pad>().Building = tower;
+                     playermanager.playerCurrency -= 10;
+
+
+            }
+                if (TowerToBuild == "MageTower")
+                {
+
+                    GameObject tower = Instantiate(MageTower, spawnlocation, Quaternion.identity);
+                    SelectedPad.GetComponent<Pad>().Building = tower;
+                     playermanager.playerCurrency -= 10;
+
+
+            }
+                if (TowerToBuild == "AcidTower")
+                {
+
+                    GameObject tower = Instantiate(AcidTower, spawnlocation, Quaternion.identity);
+                    SelectedPad.GetComponent<Pad>().Building = tower;
+                    playermanager.playerCurrency -= 5;
+
+            }
+                if (TowerToBuild == "ArcherTower")
+                {
+
+                    GameObject tower = Instantiate(ArcherTower, spawnlocation, Quaternion.identity);
+                    SelectedPad.GetComponent<Pad>().Building = tower;
+                    playermanager.playerCurrency -= 5;
+
+            }
+
+
+                SelectedPad.GetComponent<Pad>().builtUpon = true;
+
+
+            }
+
         
-
-        if (SelectedPad.GetComponent<Pad>().builtUpon == false)
-        {
-
-
-
-            padlocation = SelectedPad.transform.position;
-            Vector3 spawnlocation = new Vector3(padlocation.x, padlocation.y, 0);
-
-
-            if (TowerToBuild == "IceTower")
-            {
-
-                GameObject tower = (GameObject)Instantiate(IceTower, spawnlocation, Quaternion.identity);
-                SelectedPad.GetComponent<Pad>().Building = tower;
-
-            }
-            if (TowerToBuild == "FireTower")
-            {
-
-                GameObject tower = Instantiate(FireTower, spawnlocation, Quaternion.identity);
-                SelectedPad.GetComponent<Pad>().Building = tower;
-
-
-            }
-            if (TowerToBuild == "MageTower")
-            {
-
-                GameObject tower = Instantiate(MageTower, spawnlocation, Quaternion.identity);
-                SelectedPad.GetComponent<Pad>().Building = tower;
-
-
-            }
-            if (TowerToBuild == "AcidTower")
-            {
-
-                GameObject tower = Instantiate(AcidTower, spawnlocation, Quaternion.identity);
-                SelectedPad.GetComponent<Pad>().Building = tower;
-
-
-            }
-            if (TowerToBuild == "ArcherTower")
-            {
-
-                GameObject tower = Instantiate(ArcherTower, spawnlocation, Quaternion.identity);
-                SelectedPad.GetComponent<Pad>().Building = tower;
-
-            }
-
-
-            SelectedPad.GetComponent<Pad>().builtUpon = true;
-          
-
-        }
-
-
 
 
 

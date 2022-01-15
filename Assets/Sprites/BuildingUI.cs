@@ -47,13 +47,14 @@ public class BuildingUI : MonoBehaviour
 
     public void BuildIceTower()
     {
-        if (playermanager.playerCurrency >= 5) {
+        if (playermanager.playerCurrency >= 5) 
+        {
 
-            playermanager.playerCurrency -= 5;
-
-            UpdateGold();
             pass.TowerToBuild = "IceTower";
             pass.BuildTower();
+
+            UpdateGold();
+   
         }
     }
 
@@ -61,12 +62,12 @@ public class BuildingUI : MonoBehaviour
     {
         if (playermanager.playerCurrency >= 10)
         {
-
-            playermanager.playerCurrency -= 10;
-
-            UpdateGold();
             pass.TowerToBuild = "FireTower";
             pass.BuildTower();
+
+
+            UpdateGold();
+    
         }
     }
 
@@ -76,11 +77,11 @@ public class BuildingUI : MonoBehaviour
         if (playermanager.playerCurrency >= 10)
         {
 
-            playermanager.playerCurrency -= 10;
-
-            UpdateGold();
             pass.TowerToBuild = "MageTower";
             pass.BuildTower();
+
+            UpdateGold();
+    
         }
     }
 
@@ -90,11 +91,13 @@ public class BuildingUI : MonoBehaviour
         if (playermanager.playerCurrency >= 5)
         {
 
-            playermanager.playerCurrency -= 5;
 
-            UpdateGold();
+
             pass.TowerToBuild = "AcidTower";
             pass.BuildTower();
+
+            UpdateGold();
+   
         }
     }
 
@@ -104,11 +107,11 @@ public class BuildingUI : MonoBehaviour
         if (playermanager.playerCurrency >= 5)
         {
 
-            playermanager.playerCurrency -= 5;
-
-            UpdateGold();
             pass.TowerToBuild = "ArcherTower";
             pass.BuildTower();
+
+            UpdateGold();
+          
         }
     }
 }
