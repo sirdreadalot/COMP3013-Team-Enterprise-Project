@@ -26,8 +26,7 @@ public class playerManager : MonoBehaviour
         playerCurrentHealth = playerMaxHealth;
         healthbar.maxValue = playerMaxHealth;
         healthbar.value = playerMaxHealth;
-        GoldUpdate.UpdateGold();
-        GoldUpdate.UpdateScore();
+
 
 
     }
