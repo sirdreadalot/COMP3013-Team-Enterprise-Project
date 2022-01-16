@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '5 Gold
+  m_Text: '20 Gold
 
     -Inflicts Acid damage
 
@@ -3351,7 +3351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '10 Gold
+  m_Text: '50 Gold
 
     -Inflicts Lightning damage
 
@@ -7706,7 +7706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '5 Gold.
+  m_Text: '10 Gold.
 
     -Does little damage but slows down foes
 
@@ -8760,7 +8760,6 @@ MonoBehaviour:
   playerMaxHealth: 0
   playerCurrentHealth: 0
   playerCurrency: 0
-  playerScore: 0
 --- !u!4 &1198307726
 Transform:
   m_ObjectHideFlags: 0
@@ -12739,7 +12738,6 @@ GameObject:
   - component: {fileID: 1734025465}
   - component: {fileID: 1734025464}
   - component: {fileID: 1734025463}
-  - component: {fileID: 1734025462}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -12747,36 +12745,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1734025462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734025461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eee3225cfa4645745b86799a93be3665, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1734025463
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14887,7 +14855,6 @@ MonoBehaviour:
   playerMaxHealth: 0
   playerCurrentHealth: 0
   playerCurrency: 0
-  playerScore: 0
 --- !u!114 &2109772700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15150,7 +15117,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '10 Gold
+  m_Text: '15 Gold
 
     -Inflicts fire damage
 

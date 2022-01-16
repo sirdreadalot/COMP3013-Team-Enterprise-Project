@@ -40,7 +40,7 @@ public class healthAndDamage : MonoBehaviour
     public ParticleSystem IceParticle;
     public ParticleSystem LightningParticle;
     public ParticleSystem AcidParticle;
-
+    private int tempScore;
 
 
 
@@ -48,7 +48,7 @@ public class healthAndDamage : MonoBehaviour
     void Start()
     {
 
-
+        tempScore = playerManager.playerScore;
         FireParticle.Stop();
         IceParticle.Stop();
         LightningParticle.Stop();
@@ -71,27 +71,27 @@ public class healthAndDamage : MonoBehaviour
         }
         if (Tag == "Ogre")
         {          
-            Health = 400;
+            Health = 800;
             
         }
         if (Tag == "FireElemental")
         {
-            Health = 1200;
+            Health = 2500;
 
         }
         if (Tag == "IceElemental")
         {
-            Health = 1000;
+            Health = 2500;
 
         }
         if (Tag == "AcidElemental")
         {
-            Health = 1000;
+            Health = 2500;
 
         }
         if (Tag == "LightningElemental")
         {
-            Health = 1000;
+            Health = 2500;
 
         }
 
@@ -183,53 +183,54 @@ public class healthAndDamage : MonoBehaviour
             {
 
                 passToManager.playerCurrency += 5;
-                passToManager.playerScore += 25;
+                tempScore += 25;
             }
             if (Tag == "Orc")
             {
 
                 passToManager.playerCurrency += 10;             //adds coins for each enemy death. the bigger the enemy (in descending order here) the more dollar gotten
-                passToManager.playerScore += 50;
+                tempScore += 50;
             }
             if (Tag == "Ogre")
             {
 
                 passToManager.playerCurrency += 15;
-                passToManager.playerScore += 100;
+                tempScore += 100;
 
             }
             if (Tag == "FireElemental")
             {
 
                 passToManager.playerCurrency += 20;
-                passToManager.playerScore += 150;
+                tempScore += 150;
 
             }
             if (Tag == "IceElemental")
             {
 
                 passToManager.playerCurrency += 20;
-                passToManager.playerScore += 150;
+                tempScore += 150;
 
             }
             if (Tag == "AcidElemental")
             {
 
                 passToManager.playerCurrency += 20;
-                passToManager.playerScore += 150;
+                tempScore += 150;
 
             }
             if (Tag == "LightningElemental")
             {
 
                 passToManager.playerCurrency += 20;
-                passToManager.playerScore += 150;
+                tempScore += 150;
 
             }
 
 
 
             Destroy(gameObject);
+            playerManager.playerScore += tempScore;
 
         }
 

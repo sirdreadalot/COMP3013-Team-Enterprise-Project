@@ -71,7 +71,7 @@ public class PadManager : MonoBehaviour
 
                     GameObject tower = (GameObject)Instantiate(IceTower, spawnlocation, Quaternion.identity);
                     SelectedPad.GetComponent<Pad>().Building = tower;
-                    playermanager.playerCurrency -= 5;
+                    playermanager.playerCurrency -= 10;
 
             }
                 if (TowerToBuild == "FireTower")
@@ -79,7 +79,7 @@ public class PadManager : MonoBehaviour
 
                     GameObject tower = Instantiate(FireTower, spawnlocation, Quaternion.identity);
                     SelectedPad.GetComponent<Pad>().Building = tower;
-                     playermanager.playerCurrency -= 10;
+                     playermanager.playerCurrency -= 15;
 
 
             }
@@ -88,7 +88,7 @@ public class PadManager : MonoBehaviour
 
                     GameObject tower = Instantiate(MageTower, spawnlocation, Quaternion.identity);
                     SelectedPad.GetComponent<Pad>().Building = tower;
-                     playermanager.playerCurrency -= 10;
+                     playermanager.playerCurrency -= 50;
 
 
             }
@@ -97,7 +97,7 @@ public class PadManager : MonoBehaviour
 
                     GameObject tower = Instantiate(AcidTower, spawnlocation, Quaternion.identity);
                     SelectedPad.GetComponent<Pad>().Building = tower;
-                    playermanager.playerCurrency -= 5;
+                    playermanager.playerCurrency -= 20;
 
             }
                 if (TowerToBuild == "ArcherTower")

@@ -17,7 +17,7 @@ public class playerManager : MonoBehaviour
     public int playerMaxHealth;
     public int playerCurrentHealth;
     public int playerCurrency;
-    public int playerScore = 0;
+    static public int playerScore = 0;
 
     void Start()
     {

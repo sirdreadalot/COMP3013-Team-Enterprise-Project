@@ -11,6 +11,7 @@ public class BuildingUI : MonoBehaviour
     private playerManager playermanager;
     public Text gold;
     public Text Score;
+    private int tempScore;
 
     public int goldcount;
 
@@ -39,15 +40,15 @@ public class BuildingUI : MonoBehaviour
     public void UpdateScore()
     {
 
+        tempScore = playerManager.playerScore;
+        Score.text = tempScore.ToString();
 
-        Score.text = playermanager.playerScore.ToString();
-        
 
     }
 
     public void BuildIceTower()
     {
-        if (playermanager.playerCurrency >= 5) 
+        if (playermanager.playerCurrency >= 10) 
         {
 
             pass.TowerToBuild = "IceTower";
@@ -60,7 +61,7 @@ public class BuildingUI : MonoBehaviour
 
     public void BuildFireTower()
     {
-        if (playermanager.playerCurrency >= 10)
+        if (playermanager.playerCurrency >= 15)
         {
             pass.TowerToBuild = "FireTower";
             pass.BuildTower();
@@ -74,7 +75,7 @@ public class BuildingUI : MonoBehaviour
 
     public void BuildMageTower()
     {
-        if (playermanager.playerCurrency >= 10)
+        if (playermanager.playerCurrency >= 50)
         {
 
             pass.TowerToBuild = "MageTower";
@@ -88,7 +89,7 @@ public class BuildingUI : MonoBehaviour
 
     public void BuildAcidTower()
     {
-        if (playermanager.playerCurrency >= 5)
+        if (playermanager.playerCurrency >= 20)
         {
 
 

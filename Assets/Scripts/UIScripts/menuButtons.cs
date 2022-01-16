@@ -9,9 +9,16 @@ public class menuButtons : MonoBehaviour
     // Various canvas's that need to be hidden at first.
     public GameObject pauseMenuCanvas;
 
+
+    public void Start()
+    {
+        playerManager.playerScore = 0;
+    }
+
     public void PlayButton()
     {
         SceneManager.LoadScene("Game Scene");
+        playerManager.playerScore = 0;
     }
 
     public void ExitButton()
