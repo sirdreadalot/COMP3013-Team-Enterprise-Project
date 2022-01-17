@@ -17,14 +17,10 @@ public class Spawner : MonoBehaviour
     public GameObject bossMonster1;
     public GameObject bossMonster2;
     public GameObject bossMonster3;
-    public GameObject bossMonster4;
-    public GameObject bossMonster5;
     public int dontSpawnBoss0Before = 0;
     public int dontSpawnBoss1Before = 0;
     public int dontSpawnBoss2Before = 0;
     public int dontSpawnBoss3Before = 0;
-    public int dontSpawnBoss4Before = 0;
-    public int dontSpawnBoss5Before = 0;
     public GameObject enemy0;
     public GameObject enemy1;
     public GameObject enemy2;
@@ -156,22 +152,42 @@ public class Spawner : MonoBehaviour
     //Method that choose and sorts boss monsters
     GameObject ChooseBoss()
     {
-        GameObject[] bosses = new GameObject[0];
-
-        //add the bosses to an array
-        AddBossToArray(bosses, bossMonster0, dontSpawnBoss0Before);
-        AddBossToArray(bosses, bossMonster1, dontSpawnBoss1Before);
-        AddBossToArray(bosses, bossMonster2, dontSpawnBoss2Before);
-        AddBossToArray(bosses, bossMonster3, dontSpawnBoss3Before);
-        AddBossToArray(bosses, bossMonster4, dontSpawnBoss4Before);
-        AddBossToArray(bosses, bossMonster5, dontSpawnBoss5Before);
-
-        PrintBosses(bosses);
-
         System.Random rand = new System.Random();
-        int random = rand.Next(bosses.Length);
+        int random = rand.Next(4);
+        GameObject boss = enemy0;
+        if (random == 0)
+        {
+            boss = bossMonster0;
+        } else if (random == 1)
+        {
+            boss = bossMonster1;
+        } else if (random == 2)
+        {
+            boss = bossMonster2;
+        } else if (random == 3)
+        {
+            boss = bossMonster3;
+        }
+        Debug.Log("Selected boss: " + boss.name);
+
+        return boss;
         
-        return bosses[random];
+        //GameObject[] bosses = new GameObject[0];
+
+        ////add the bosses to an array
+        //AddBossToArray(bosses, bossMonster0, dontSpawnBoss0Before);
+        //AddBossToArray(bosses, bossMonster1, dontSpawnBoss1Before);
+        //AddBossToArray(bosses, bossMonster2, dontSpawnBoss2Before);
+        //AddBossToArray(bosses, bossMonster3, dontSpawnBoss3Before);
+        //AddBossToArray(bosses, bossMonster4, dontSpawnBoss4Before);
+        //AddBossToArray(bosses, bossMonster5, dontSpawnBoss5Before);
+
+        //PrintBosses(bosses);
+
+        //System.Random rand = new System.Random();
+        //int random = rand.Next(bosses.Length);
+        
+        //return bosses[random];
     }
     GameObject[] AddBossToArray(GameObject[] array,GameObject boss,int limit)
     {

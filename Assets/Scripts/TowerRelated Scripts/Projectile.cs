@@ -68,7 +68,7 @@ public class Projectile : MonoBehaviour
 
         
 
-        Debug.Log(target);
+        //Debug.Log(target);
 
 
 
