@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2239510478508229147}
   - component: {fileID: 4296210438896394853}
-  - component: {fileID: -5629106144070991465}
   m_Layer: 0
   m_Name: Mage Tower 1
   m_TagString: Mage
@@ -59,18 +58,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3481541, y: 1.4642043}
   m_EdgeRadius: 0
---- !u!114 &-5629106144070991465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559113739703658862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9b66529b21e8542b16acc3507cf24e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3838143214999429465
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +219,7 @@ GameObject:
   - component: {fileID: 2737533414952569142}
   - component: {fileID: 6340860196034394619}
   - component: {fileID: 819383609047087721}
+  - component: {fileID: 8895951587103934500}
   m_Layer: 6
   m_Name: mage
   m_TagString: Archer
@@ -362,3 +350,15 @@ MonoBehaviour:
   newdDist: 0
   Line: {fileID: 0}
   Targetposition: {fileID: 0}
+--- !u!114 &8895951587103934500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196385480342332779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9b66529b21e8542b16acc3507cf24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
