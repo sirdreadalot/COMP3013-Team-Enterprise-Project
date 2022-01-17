@@ -54,9 +54,13 @@ public class PadManager : MonoBehaviour
         {
             if (pads[i] != pad)
             {
-                if(pads[i].GetComponent<Pad>().builtUpon == false)
+                if (pads[i].GetComponent<Pad>().builtUpon == false)
                 {
                     pads[i].GetComponent<Pad>().Deselect();
+                }
+                else
+                {
+                    pads[i].GetComponent<Pad>().BuildOn();
                 }
                 
             }
