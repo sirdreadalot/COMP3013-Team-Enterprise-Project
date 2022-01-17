@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class Spawner : MonoBehaviour
@@ -35,6 +36,7 @@ public class Spawner : MonoBehaviour
     public Quaternion rot;
     public int pauseLength = 10;
     private Animator spawnAnim;
+    public GameObject waveUI;
     
     
     // Start is called before the first frame update
@@ -81,6 +83,10 @@ public class Spawner : MonoBehaviour
     {
         mobCursor = 0;
         waveNumber++;
+
+        string waveText = "Wave: " + waveNumber.ToString();
+        Debug.Log(waveText);
+        waveUI.GetComponent<Text>().text = waveText;
 
         //enemy 0
 

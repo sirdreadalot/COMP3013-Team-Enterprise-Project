@@ -25,6 +25,7 @@ TagManager:
   - Gold
   - Spawner
   - Pad
+  - WaveUI
   layers:
   - Default
   - TransparentFX
