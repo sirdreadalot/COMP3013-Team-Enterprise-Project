@@ -10,7 +10,9 @@ public class Pad : MonoBehaviour
 
     private PadManager pass;
     public GameObject Building;
-
+    public Sprite selected;
+    public Sprite unselected;
+    public Sprite empty;
     public bool builtUpon = false;
 
     void Start()
@@ -19,6 +21,8 @@ public class Pad : MonoBehaviour
         pass = FindObjectOfType<PadManager>();
 
         //GetComponent<Image>().enabled = false;
+
+        unselected = GetComponent<Image>().sprite;
     }
 
     // Update is called once per frame
@@ -37,9 +41,18 @@ public class Pad : MonoBehaviour
     }
     void OnMouseDown()
     {
-
+        GetComponent<Image>().sprite = selected;
         pass.selectedpad(gameObject);
         //GetComponent<Image>().enabled = true;
 
+    }
+    public void BuildOn()
+    {
+        builtUpon = true;
+        GetComponent<Image>().sprite = empty;
+    }
+    public void Deselect()
+    {
+        GetComponent<Image>().sprite = unselected;
     }
 }

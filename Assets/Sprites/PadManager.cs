@@ -43,8 +43,24 @@ public class PadManager : MonoBehaviour
 
         SelectedPad = pad;
 
+        UnselectPads(pad);
 
         return SelectedPad;
+    }
+    void UnselectPads(GameObject pad)
+    {
+        GameObject[] pads = GameObject.FindGameObjectsWithTag("Pad");
+        for(int i = 0; i < pads.Length; i++)
+        {
+            if (pads[i] != pad)
+            {
+                if(pads[i].GetComponent<Pad>().builtUpon == false)
+                {
+                    pads[i].GetComponent<Pad>().Deselect();
+                }
+                
+            }
+        }
     }
 
 
@@ -110,7 +126,8 @@ public class PadManager : MonoBehaviour
             }
 
 
-                SelectedPad.GetComponent<Pad>().builtUpon = true;
+                //SelectedPad.GetComponent<Pad>().builtUpon = true;
+                SelectedPad.GetComponent<Pad>().BuildOn();
 
 
             }
