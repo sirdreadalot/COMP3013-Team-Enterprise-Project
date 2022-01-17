@@ -55,7 +55,7 @@ public class Spawner : MonoBehaviour
     }
     public void SpawnMonster()
     {
-        Debug.Log("Spawning Monster ");
+        //Debug.Log("Spawning Monster ");
         if(mobCursor < mobQueue.Length)
         {
             Instantiate(mobQueue[mobCursor], spawnPoint, rot);
@@ -85,7 +85,7 @@ public class Spawner : MonoBehaviour
         waveNumber++;
 
         string waveText = "Wave: " + waveNumber.ToString();
-        Debug.Log(waveText);
+        //Debug.Log(waveText);
         waveUI.GetComponent<Text>().text = waveText;
 
         //enemy 0
