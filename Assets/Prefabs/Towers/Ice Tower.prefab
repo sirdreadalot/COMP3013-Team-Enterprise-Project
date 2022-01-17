@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 7190107882396068157}
   - component: {fileID: 7190107882396068156}
   - component: {fileID: 7190107882396068155}
+  - component: {fileID: 4099620002436005989}
   m_Layer: 6
   m_Name: Ice tower
   m_TagString: Archer
@@ -201,6 +202,18 @@ MonoBehaviour:
   firepoint: {fileID: 7190107883559626481}
   Targetposition: {fileID: 0}
   maxAmmo: 1
+--- !u!114 &4099620002436005989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7190107882396068153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9b66529b21e8542b16acc3507cf24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7190107883559626480
 GameObject:
   m_ObjectHideFlags: 0

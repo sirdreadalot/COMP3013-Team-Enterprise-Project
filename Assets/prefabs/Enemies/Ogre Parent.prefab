@@ -14698,6 +14698,8 @@ GameObject:
   - component: {fileID: 4424873770813350922}
   - component: {fileID: 6872163984242023091}
   - component: {fileID: 4039587169195953922}
+  - component: {fileID: 3850325819466416991}
+  - component: {fileID: 840734398378351739}
   m_Layer: 0
   m_Name: Ogre
   m_TagString: Ogre
@@ -14900,6 +14902,31 @@ MonoBehaviour:
   IceParticle: {fileID: 3663129268708304689}
   LightningParticle: {fileID: 5349653507797453783}
   AcidParticle: {fileID: 3015605638641050000}
+--- !u!114 &3850325819466416991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424873770813350933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99df6c29c823b394da8635a94a472ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 100
+--- !u!114 &840734398378351739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424873770813350933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691c8929e27f2e1478f663bef95d9a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4454716805681570505
 GameObject:
   m_ObjectHideFlags: 0
@@ -19872,7 +19899,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 1473057263
+  m_SortingLayerID: -94412953
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &5108682827865667894

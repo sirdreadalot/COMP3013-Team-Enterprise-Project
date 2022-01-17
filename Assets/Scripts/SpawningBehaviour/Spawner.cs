@@ -43,9 +43,14 @@ public class Spawner : MonoBehaviour
         spawnAnim = GetComponent<Animator>();
         rot = this.transform.rotation;
         Instantiate(enemy0, spawnPoint, rot);
-        StartCoroutine(SpawningPause());
+        //StartCoroutine(SpawningPause());
     }
-    
+
+    public void BeginFirst()
+    {
+        NextWave();
+        spawnAnim.SetBool("isSpawning", true);
+    }
     public void SpawnMonster()
     {
         Debug.Log("Spawning Monster ");
@@ -55,19 +60,19 @@ public class Spawner : MonoBehaviour
             mobCursor++;
         } else
         {
-            Debug.Log("Wave " + waveNumber + " Finished.");
+            //Debug.Log("Wave " + waveNumber + " Finished.");
             StartCoroutine(SpawningPause());
         }
     }
     //coroutine that pauses between waves and starts the next one
-    IEnumerator SpawningPause()
+    public IEnumerator SpawningPause()
     {
         Debug.Log("Starting spawning pause...");
         //stops the spawning process
         spawnAnim.SetBool("isSpawning", false);
         //wait for the prescribed pause length
         yield return new WaitForSeconds(pauseLength);
-        Debug.Log("Calculating wave number: " + waveNumber);
+        //Debug.Log("Calculating wave number: " + waveNumber);
         NextWave();
         //retsrats the spawning process
         spawnAnim.SetBool("isSpawning", true);
@@ -236,7 +241,7 @@ public class Spawner : MonoBehaviour
 
         num = (int)Mathf.Round((Mathf.Sin(x)+2)*(x*difficulty));
         num += minBaseEnemies;
-        Debug.Log("SIN: Calculated from " + waveNumber + " to " + num);
+        //Debug.Log("SIN: Calculated from " + waveNumber + " to " + num);
 
         return MinValue(1, num);
     }
@@ -246,7 +251,7 @@ public class Spawner : MonoBehaviour
         int x = Amplify(wn, waveAmplitude);
 
         num = (int)Mathf.Round((Mathf.Cos(x)+2)*(x*difficulty));
-        Debug.Log("COS: Calculated from " + waveNumber + " to " + num);
+        //Debug.Log("COS: Calculated from " + waveNumber + " to " + num);
 
         return MinValue(0, num);
     }
@@ -259,7 +264,7 @@ public class Spawner : MonoBehaviour
         int x = Amplify(wn, amp);
 
         num = (int)Mathf.Round(Mathf.Tan(x) + x);
-        Debug.Log("TAN: Calculated from " + waveNumber + " to " + num);
+        //Debug.Log("TAN: Calculated from " + waveNumber + " to " + num);
 
         return MinValue(0,num);
     }

@@ -23,6 +23,7 @@ TagManager:
   - AcidElemental
   - LightningElemental
   - Gold
+  - Spawner
   layers:
   - Default
   - TransparentFX
@@ -69,12 +70,12 @@ TagManager:
   - name: Towers
     uniqueID: 2690192163
     locked: 0
-  - name: Foreground
-    uniqueID: 1978648841
-    locked: 0
   - name: FX
     uniqueID: 149536383
     locked: 0
   - name: UI
     uniqueID: 4200554343
+    locked: 0
+  - name: Foreground
+    uniqueID: 1978648841
     locked: 0
