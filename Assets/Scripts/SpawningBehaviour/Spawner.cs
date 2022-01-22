@@ -8,11 +8,13 @@ public class Spawner : MonoBehaviour
 {
     public int waveNumber = 0;
     public int waveAmplitude = 2;
-    public int difficulty = 5;
+    public float difficulty = 1.2f;
     public int minBaseEnemies = 10;
-    public int startEnemy2 = 5;
-    public int startEnemy3 = 10;
+    public int startEnemy1 = 5;
+    public int startEnemy2 = 10;
+    public int startEnemy3 = 15;
     public int bossAmplitude = 3;
+    public GameObject noBoss;
     public GameObject bossMonster0;
     public GameObject bossMonster1;
     public GameObject bossMonster2;
@@ -88,7 +90,11 @@ public class Spawner : MonoBehaviour
 
         int e0 = CalculateNumSin(waveNumber);
         //enemy 1
-        int e1 = CalculateNumCos(waveNumber);
+        int e1 = 0;
+        if (waveNumber >= startEnemy1)
+        {
+            e1 = CalculateNumCos(waveNumber - startEnemy1);
+        }
         //enemy 2
         int e2 = 0;
         if (waveNumber >= startEnemy2)
@@ -104,8 +110,29 @@ public class Spawner : MonoBehaviour
         //boss enemy
         int eBM = CalculateNumTan(waveNumber);
 
+        //this goes here in case there's no bosses
+        GameObject boss = new GameObject();
+        if (waveNumber >= dontSpawnBoss0Before)
+        {
+            try
+            {
+                boss = ChooseBoss();
+            }
+            catch
+            {
+                Debug.Log("Choose Boss doesn't work. Defaulting to first boss.");
+                boss = bossMonster0;
+            }
+        }
+        else
+        {
+            eBM = 0;
+            boss = noBoss;
+        }
+
         //total number of mobs for the wave
         int total = e0 + e1 + e2 + e3 + eBM;
+
 
         //make the array
         mobQueue = new GameObject[total];
@@ -115,26 +142,25 @@ public class Spawner : MonoBehaviour
         AddMobs(e1, enemy1);
         AddMobs(e2, enemy2);
         AddMobs(e3, enemy3);
+
         //add the boss monster last so he goes at the end of the wave
-        GameObject boss;
-        try
-        {
-            boss = ChooseBoss();
-        } catch
-        {
-            Debug.Log("Choose Boss doesn't work. Defaulting to first boss.");
-            boss = bossMonster0;
-        }
-        
         if (boss != null)
         {
             AddMobs(eBM, boss);
         } else
         {
             Debug.Log("Bosses failed to load, randomiser isn't working, defaulting to first boss...");
+            boss = bossMonster0;
             AddMobs(eBM, bossMonster0);
         }
-        
+
+        Debug.Log("Starting Wave: " + waveNumber + " | "
+            + enemy0.name + ": " + e0 + " | "
+            + enemy1.name + ": " + e1 + " | "
+            + enemy2.name + ": " + e2 + " | "
+            + enemy3.name + ": " + e3 + " | "
+            + boss.name + ": " + eBM);
+
     }
     //Method that adds mobs to the queue
     void AddMobs(int numToAdd,GameObject mobToAdd)
@@ -152,22 +178,61 @@ public class Spawner : MonoBehaviour
     //Method that choose and sorts boss monsters
     GameObject ChooseBoss()
     {
+
         System.Random rand = new System.Random();
-        int random = rand.Next(4);
+        int random = 0;
         GameObject boss = enemy0;
-        if (random == 0)
+        if (waveNumber >= dontSpawnBoss3Before)
+        {
+            random = rand.Next(4);
+            if (random == 0)
+            {
+                boss = bossMonster0;
+            }
+            else if (random == 1)
+            {
+                boss = bossMonster1;
+            }
+            else if (random == 2)
+            {
+                boss = bossMonster2;
+            }
+            else if (random == 3)
+            {
+                boss = bossMonster3;
+            }
+        } else if (waveNumber >= dontSpawnBoss2Before)
+        {
+            random = rand.Next(3);
+            if (random == 0)
+            {
+                boss = bossMonster0;
+            }
+            else if (random == 1)
+            {
+                boss = bossMonster1;
+            }
+            else if (random == 2)
+            {
+                boss = bossMonster2;
+            }
+        } else if (waveNumber >= dontSpawnBoss1Before)
+        {
+            random = rand.Next(2);
+            if (random == 0)
+            {
+                boss = bossMonster0;
+            }
+            else if (random == 1)
+            {
+                boss = bossMonster1;
+            }
+        } else
         {
             boss = bossMonster0;
-        } else if (random == 1)
-        {
-            boss = bossMonster1;
-        } else if (random == 2)
-        {
-            boss = bossMonster2;
-        } else if (random == 3)
-        {
-            boss = bossMonster3;
         }
+
+        
         Debug.Log("Selected boss: " + boss.name);
 
         return boss;

@@ -21,8 +21,8 @@ public class playerManager : MonoBehaviour
 
     void Start()
     {
-        playerCurrency = 50;
-        playerMaxHealth = 100;
+        if (playerCurrency == 0) { playerCurrency = 50; }
+        if (playerMaxHealth == 0) { playerMaxHealth = 100; }
         playerCurrentHealth = playerMaxHealth;
         healthbar.maxValue = playerMaxHealth;
         healthbar.value = playerMaxHealth;

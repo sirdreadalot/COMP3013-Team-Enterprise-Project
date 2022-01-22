@@ -8,7 +8,12 @@ public class healthAndDamage : MonoBehaviour
 {
     // Start is
     // called before the first frame update
+    public GameObject PM;
 
+    public int goblinCoins = 5;
+    public int orcCoins = 10;
+    public int ogreCoins = 15;
+    public int bossCoins = 50;
 
 
     [SerializeField] public float Health;
@@ -47,6 +52,18 @@ public class healthAndDamage : MonoBehaviour
 
     void Start()
     {
+        try
+        {
+            PM = GameObject.FindWithTag("Player Manager");
+            goblinCoins = PM.GetComponent<CoinsScript>().getCoins0();
+            orcCoins = PM.GetComponent<CoinsScript>().getCoins1();
+            ogreCoins = PM.GetComponent<CoinsScript>().getCoins2();
+            bossCoins = PM.GetComponent<CoinsScript>().getCoins3();
+        }
+        catch
+        {
+            Debug.Log("Couldn't get coin values from Player Manager");
+        }
 
         tempScore = playerManager.playerScore;
         FireParticle.Stop();
@@ -182,47 +199,47 @@ public class healthAndDamage : MonoBehaviour
             if (Tag == "Goblin")
             {
 
-                passToManager.playerCurrency += 5;
+                passToManager.playerCurrency += goblinCoins;
                 tempScore += 25;
             }
             if (Tag == "Orc")
             {
 
-                passToManager.playerCurrency += 10;             //adds coins for each enemy death. the bigger the enemy (in descending order here) the more dollar gotten
+                passToManager.playerCurrency += orcCoins;             //adds coins for each enemy death. the bigger the enemy (in descending order here) the more dollar gotten
                 tempScore += 50;
             }
             if (Tag == "Ogre")
             {
 
-                passToManager.playerCurrency += 15;
+                passToManager.playerCurrency += ogreCoins;
                 tempScore += 100;
 
             }
             if (Tag == "FireElemental")
             {
 
-                passToManager.playerCurrency += 20;
+                passToManager.playerCurrency += bossCoins;
                 tempScore += 150;
 
             }
             if (Tag == "IceElemental")
             {
 
-                passToManager.playerCurrency += 20;
+                passToManager.playerCurrency += bossCoins;
                 tempScore += 150;
 
             }
             if (Tag == "AcidElemental")
             {
 
-                passToManager.playerCurrency += 20;
+                passToManager.playerCurrency += bossCoins;
                 tempScore += 150;
 
             }
             if (Tag == "LightningElemental")
             {
 
-                passToManager.playerCurrency += 20;
+                passToManager.playerCurrency += bossCoins;
                 tempScore += 150;
 
             }
