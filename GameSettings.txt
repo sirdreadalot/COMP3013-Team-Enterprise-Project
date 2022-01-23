@@ -1,0 +1,15 @@
+Game Settings:
+---------------------------------------------------
+Starting Currency: 25
+Starting Health: 100
+---------------------------------------------------
+Gold Values
+Gobo Parent: 1
+OrcParent: 5
+Ogre Parent: 10
+Bosses: 25
+---------------------------------------------------
+Boss Names
+Acid Elemental, Fire Elemental, Ice Elemental, Lightning Elemental
+---------------------------------------------------
+End of File.

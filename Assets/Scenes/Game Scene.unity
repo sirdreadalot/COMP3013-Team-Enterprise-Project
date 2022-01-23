@@ -2881,29 +2881,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveNumber: 0
-  waveAmplitude: 1
-  difficulty: 2.2
-  minBaseEnemies: 10
-  startEnemy1: 3
-  startEnemy2: 6
-  startEnemy3: 7
+  waveAmplitude: 2
+  difficulty: 1.3
+  minBaseEnemies: 5
+  startEnemy1: 5
+  startEnemy2: 10
+  startEnemy3: 15
   bossAmplitude: 2
   noBoss: {fileID: 6621650009273577614, guid: 399e1d1014392674b953934e31e5234f, type: 3}
   bossMonster0: {fileID: 7788388136117731258, guid: 18c537c7be4a2784a840787e521d3c5b, type: 3}
   bossMonster1: {fileID: 7700142424650225574, guid: b4ce7f74862e4684fa95bd281851bac9, type: 3}
   bossMonster2: {fileID: 984964647051923239, guid: d16f670ac5b8cf345942eb81dbd84d59, type: 3}
   bossMonster3: {fileID: 587740481441093888, guid: 229ba465ab3c53b49acad82929ac6503, type: 3}
-  dontSpawnBoss0Before: 9
-  dontSpawnBoss1Before: 11
-  dontSpawnBoss2Before: 13
-  dontSpawnBoss3Before: 17
+  dontSpawnBoss0Before: 20
+  dontSpawnBoss1Before: 25
+  dontSpawnBoss2Before: 30
+  dontSpawnBoss3Before: 35
   enemy0: {fileID: 3443110809176366724, guid: d616d4da9fc289c42a5fb3cdcd4d0b38, type: 3}
   enemy1: {fileID: 1998018704718204025, guid: bf20078b8f9165d4691801372bf515bd, type: 3}
   enemy2: {fileID: 1964724601738464604, guid: b15642b987fc313409518c4b51e77ca9, type: 3}
   enemy3: {fileID: 3443110809176366724, guid: d616d4da9fc289c42a5fb3cdcd4d0b38, type: 3}
   spawnPoint: {x: -32, y: 0.09, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
-  pauseLength: 15
+  pauseLength: 5
   waveUI: {fileID: 1176745708}
 --- !u!95 &316095937
 Animator:
@@ -9732,6 +9732,7 @@ GameObject:
   - component: {fileID: 1198307727}
   - component: {fileID: 1198307728}
   - component: {fileID: 1198307729}
+  - component: {fileID: 1198307730}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Player Manager
@@ -9754,9 +9755,9 @@ MonoBehaviour:
   pauseMenuCanvas: {fileID: 1734025461}
   GoldUpdate: {fileID: 1198307727}
   healthbar: {fileID: 919358751}
-  playerMaxHealth: 0
+  playerMaxHealth: 100
   playerCurrentHealth: 0
-  playerCurrency: 50
+  playerCurrency: 25
 --- !u!4 &1198307726
 Transform:
   m_ObjectHideFlags: 0
@@ -9810,10 +9811,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b5c28fa86033447826d83c013cd89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy0Coins: 3
-  enemy1Coins: 6
+  enemy0Coins: 1
+  enemy1Coins: 5
   enemy2Coins: 10
-  enemy3Coins: 100
+  enemy3Coins: 25
+--- !u!114 &1198307730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198307724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a442aea5648c4534188c27cb238ca513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1201778551
 GameObject:
   m_ObjectHideFlags: 0
@@ -16567,63 +16580,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146693105}
   m_CullTransparentMesh: 1
---- !u!1001 &784412130247633026
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -22.598013
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8211203
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -544.45184
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038880760218513460, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6621650009273577614, guid: 399e1d1014392674b953934e31e5234f, type: 3}
-      propertyPath: m_Name
-      value: No Boss
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 399e1d1014392674b953934e31e5234f, type: 3}
 --- !u!1001 &6441455995630761741
 PrefabInstance:
   m_ObjectHideFlags: 0

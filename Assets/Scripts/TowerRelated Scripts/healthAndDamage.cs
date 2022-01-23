@@ -200,47 +200,47 @@ public class healthAndDamage : MonoBehaviour
             {
 
                 passToManager.playerCurrency += goblinCoins;
-                tempScore += 25;
+                tempScore = 25;
             }
             if (Tag == "Orc")
             {
 
                 passToManager.playerCurrency += orcCoins;             //adds coins for each enemy death. the bigger the enemy (in descending order here) the more dollar gotten
-                tempScore += 50;
+                tempScore = 50;
             }
             if (Tag == "Ogre")
             {
 
                 passToManager.playerCurrency += ogreCoins;
-                tempScore += 100;
+                tempScore = 100;
 
             }
             if (Tag == "FireElemental")
             {
 
                 passToManager.playerCurrency += bossCoins;
-                tempScore += 150;
+                tempScore = 150;
 
             }
             if (Tag == "IceElemental")
             {
 
                 passToManager.playerCurrency += bossCoins;
-                tempScore += 150;
+                tempScore = 150;
 
             }
             if (Tag == "AcidElemental")
             {
 
                 passToManager.playerCurrency += bossCoins;
-                tempScore += 150;
+                tempScore = 150;
 
             }
             if (Tag == "LightningElemental")
             {
 
                 passToManager.playerCurrency += bossCoins;
-                tempScore += 150;
+                tempScore = 150;
 
             }
 
